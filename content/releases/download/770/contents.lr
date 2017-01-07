@@ -1,0 +1,44 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 770
+---
+version: 0.6.1
+---
+dsa_signature: MCwCFHhqLBAEDeJde3yoTi1h9AMicATEAhRpYWaQbxUF8LM8jDIWntJ8Uu/X7w==
+---
+length: 8135321
+---
+note:
+
+### Bug fixes
+
+* Front-matter detection for file using line endings other than LF.
+* Code blocks with certain languages causes exceptions when being highlighted.
+
+
+### Minor features
+
+* Styling for <code>&lt;kbd></code> tags are added to all themes.
+
+    **Important Note:** You need to manually remove previous CSS files from <code>~/Library/Application Support/MacDown/Styles</code> for the new style files to be applied.
+
+* You can now configure a preferred marker for the unordered list hotkey (⇧⌘U).
+
+* The error message is now clearer when clicking on a hyperlink to a non-existent target in the preview pane.
+
+* MacDown now handles files with <code>.markdown</code> extension.
+
+* MathJax processing messages are now hidden in the preview pane.
+
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.6.1/MacDown.app.zip
+---
+pub_datetime: 2016-10-07 13:42:00

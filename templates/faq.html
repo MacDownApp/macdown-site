@@ -202,7 +202,8 @@
   </dd>
 </dl>
 
-{% include 'includes/download_link.html' %}
+{% from 'macros/version.html' import render_download_latest %}
+{{ render_download_latest(latest_release) }}
 
 {% endblock content %}
 

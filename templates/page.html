@@ -11,7 +11,8 @@
 {{ this.content }}
 
 {% if this.has_download_link %}
-{% include 'includes/download_link.html' %}
+{% from 'macros/version.html' import render_download_latest %}
+{{ render_download_latest(latest_release) }}
 {% endif %}
 
 {% endblock content %}

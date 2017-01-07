@@ -1,0 +1,24 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 786
+---
+version: 0.6.4
+---
+dsa_signature: MC0CFBoOsFzhNiq7Rb9Dg0PU8kqfyuyVAhUAmdvwVFDyNld2Yp9LbGcJS44Z85Y=
+---
+length: 8136151
+---
+note:
+
+Same as 0.6.3, but disable the DOM-replacing thing. Sorry for the trouble. :(
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.6.4/MacDown.app.zip
+---
+pub_datetime: 2016-11-07 01:23:54

@@ -1,6 +1,5 @@
 {% extends 'barepage.html' %}
 
-{% from 'macros/blog.html' import render_blog_post_list_item %}
 {% from 'macros/pagination.html' import render_pagination %}
 
 {% block styles %}
@@ -20,8 +19,12 @@
 {% block content %}
 <hr>
 <ul class="post-list">
-  {% for child in this.pagination.items %}
-  {{ render_blog_post_list_item(child, from_index=true) }}
+  {% for post in this.pagination.items %}
+  <li>
+    <span class="date">{{ post.pub_date }}</span>
+    <span class="sep">»</span>
+    <a href="{{ post|url }}">{{ post.title }}</a>
+  </li>
   {% endfor %}
 </ul>
 

@@ -1,0 +1,25 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 772
+---
+version: 0.6.2
+---
+dsa_signature: MCwCFEWF4lEPCSEGv26XFBOQSAL8H3wyAhQ0fMvxWbtKQKg+yK5HM289ALqyfw==
+---
+length: 8135321
+---
+note:
+
+Fixed command line utility to correctly load file contents.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.6.2/MacDown.app.zip
+---
+pub_datetime: 2016-11-08 23:12:35

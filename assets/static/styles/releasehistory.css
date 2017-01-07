@@ -1,0 +1,31 @@
+h2 {
+    margin-left: -0.65em;
+}
+h2 .anchor-mark {
+    font-size: 45%;
+    color: #bd260d;
+    color: rgba(189, 38, 13, 0.7);
+    visibility: hidden;
+}
+h2:hover .anchor-mark {
+    visibility: visible;
+}
+h2 .attribute {
+    font-size: 40%;
+}
+h2 .info.attribute {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+h2 .channel.attribute {
+    font-size: 35%;
+}
+h2 .download.attribute {
+    font-weight: bold;
+}
+h2 .download.attribute:hover {
+    text-decoration: underline;
+}
+.release li p {
+    margin-bottom: 0;
+}

@@ -64,7 +64,8 @@
 
     <p>Visit the <a href="{{ '/features/'|url }}">Features</a> page for more details.</p>
 
-    {% include 'includes/download_link.html' %}
+    {% from 'macros/version.html' import render_download_latest %}
+    {{ render_download_latest(latest_release) }}
   </div>
 </div>
 

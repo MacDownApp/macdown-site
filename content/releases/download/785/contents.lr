@@ -1,0 +1,39 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 785
+---
+version: 0.6.3
+---
+dsa_signature: MC0CFHUc9zVz96SUhwDO1bCf02Ps/g+uAhUAri/tEvc2kFLZciT9PAUvb5W7lQ4=
+---
+length: 8136151
+---
+note:
+
+### Bug fixes
+
+* Crash when inserting colon in reference (ported from ali-rantakari/peg-markdown-highlight).
+* Crash when asset path is not valid.
+* Crash when certain editor theme is used.
+* Non-existing documents not being launched by CLI utility when MacDown is running.
+* Document being opened again and again when using CLI utility.
+
+
+### New features
+
+* Improve rendering performance and caching by dynamic DOM-replacing instead of reloading the page.
+* Avoid presenting a save dialog when closing an unnamed, empty file.
+* Add meta tag to make HTML output responsive on mobile.
+* Improve hard line break syntax example in help file.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.6.3/MacDown.app.zip
+---
+pub_datetime: 2016-11-06 15:51:58

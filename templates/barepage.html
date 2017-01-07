@@ -19,6 +19,8 @@
 
 <body>
 
+{% set latest_release = site.query('/releases/download').order_by('-build_number').first() %}
+
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name"><h1><a href="{{ '/'|url }}">Home</a></h1></li>
@@ -32,20 +34,17 @@
       <li class="has-dropdown">
         <a href="{{ '/history/'|url }}">History</a>
         <ul class="dropdown">
-          {#{% for channel in channels %}
-          <li><a href="{{ channel.get_absolute_url }}">{{ channel.name }}</a></li>
-          {% endfor %}#}
+          <li><a href="{{ '/history/stable/'|url }}">Stable</a></li>
+          <li><a href="{{ '/history/testing/'|url }}">Testing</a></li>
         </ul>
       </li>
     </ul>
     <ul class="right">
-      {# {% if latest_version %} #}
+      {% if latest_release %}
       <li class="active show-for-large-up">
-        <a href="{{ '/download/latest/'|url }}" target="_blank">
-          Download MacDown
-        </a>
+        <a href="{{ latest_release.download_url }}">Download MacDown</a>
       </li>
-      {# {% endif %} #}
+      {% endif %}
       <li>
         <a href="https://uranusjr.com">
           Visit Author Site <span class="fi-arrow-right"></span>

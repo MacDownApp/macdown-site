@@ -1,0 +1,42 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 766.1
+---
+version: 0.7d18
+---
+dsa_signature: MCwCFEfPFV5Gnf11yUCAG79amY6VEKIpAhQwsiddQNHkSiZAmFHviVsxad+RuQ==
+---
+length: 8127176
+---
+note:
+
+### Major features
+
+* Experimental auto-reload feature when file is changed in another MacDown document, or outside MacDown.
+
+
+### Minor features
+
+* Styling for <code>&lt;kbd></code> tags are added to all themes.
+
+    **Important Note:** You need to manually remove previous CSS files from <code>~/Library/Application Support/MacDown/Styles</code> for the new style files to be applied.
+
+* You can now configure a preferred marker for the unordered list hotkey (⇧⌘U).
+
+* The error message is now clearer when clicking on a hyperlink to a non-existent target in the preview pane.
+
+* MacDown now handles files with <code>.markdown</code> extension.
+
+* MathJax processing messages are now hidden in the preview pane.
+
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.6.1/MacDown.app.zip
+---
+pub_datetime: 2016-10-07 13:42:00
