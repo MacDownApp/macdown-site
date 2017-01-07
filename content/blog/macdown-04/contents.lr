@@ -1,0 +1,68 @@
+title: MacDown 0.4
+---
+author: Tzu-ping Chung
+---
+pub_date: 2014-12-14
+---
+content:
+
+MacDown 0.4 has been released. This is the second minor version jump in a row, and with good reason: it is much better than MacDown 0.3.
+
+## Hoedown 3
+
+The Markdown-to-HTML rendering backend has been upgraded to [Hoedown] 3. As a result, MacDown now outputs the preview HTML more quickly than ever before, with even fewer glitches. The library API has been revamped greatly, and while you might not be able to notice the difference (without digging into the source code), this helps the development of MacDown because we can now build extensions to the rendering system more easily. Great thanks to the people behind Hoedown!
+
+But those are not all we get from a simple library upgrade. The most important feature change in MacDown 0.3 is…
+
+## Math Rendering
+
+LaTeX-like math syntax support has always been a popular feature for MacDown (and many other Markdown editors, too!), but unfortunately due to syntax differences between Markdown and LaTeX, the support is not without problems. [Until now](https://github.com/hoedown/hoedown/pull/114). Hoedown 3 added built-in math blocks/spans detection, so now math syntax gets first-class support. Many bugs are killed just because of that.
+
+Built-in math syntax also opens the door to a new possibility: server-side math rendering. MacDown now uses [MathJax] to render math in the preview, but this requires Internet connection (because MathJax is *huge*), and is not exactly efficient (because we need to re-render every time preview is updated, and MathJax isn’t very fast either). With built-in syntax support, it would be possible to render the blocks/spans *before* it hits the preview UI, eliminating performance and volume overhead, even Internet connection! [^1] Very excited  about what we can do in the future.
+
+However, the new math rendering behaviour is a little bit different from the one used previously. The new math syntax adds a feature inspired by [kramdown] called **context-based inline math detection**. Previously, if you write something like this:
+
+    Lorem ipsum $$ y = ax + b $$ dolor sit amet…
+
+You will get two paragraphs, separated by a math block. Like this:
+
+![Math rendering without context detection](macdown-no-context-math-rendering.png)
+
+But now the rendering engine automatically detects that you’re writing inline math, and renders it accordingly:
+
+![Math rendering with context detection](macdown-context-math-rendering.png)
+
+This saves you from the more verbose `\\( ... \\)` syntax, at the same time enables you to write dollar signs in your text without needing to escape them.
+
+As a consequence, you are now required to put `$$ ... $$` math *in its own paragraph* to make it a block under default settings. This is best practice when you write LaTeX anyway, so while I apologise for your inconvenience, I don’t really sympathise you for making your text not readable in the first place. :p
+
+This context detection is disabled if you explicitly turn on `$ ... $` inline math (i.e. the behaviour is the same with previous versions). If you’re used to using `\\( ... \\)` and `\\[ ... \\]` anyway, everything still works.
+
+
+## Command Line Utility
+
+MacDown 0.3 ships with an additional binary at `MacDown.app/Contents/SharedSupport/bin/macdown`. This is a command line utility that can be used to open Markdown documents with MacDown from you terminal. Simply link the binary somewhere in your `PATH`, e.g.: [^2]
+
+    ln -s /Applications/MacDown.app/Contents/SharedSupport/bin/macdown /usr/bin
+
+and you’ll be able to open documents like this:
+
+    macdown foo.md bar.md
+
+If the documents you specified do not exist, MacDown will create a new document, and setup its saving path for you (but you’ll still need to save it yourself, obviously). You should be right at home if you’re familiar with Sublime Text’s command line helper `subl`, or CLI editors like nano, VIM, and Emacs.
+
+There are plans to add more features to this utility, too. If you want to know more about what it can do, just run `macdown --help`. No man page now, sorry. Speak up if you want to help out on this one!
+
+
+## Enjoy!
+
+There are also various bug-fixes and minor improvements besides the aforementioned ones. Checkout the release notes! If you have any questions and suggestions, join our [Gitter-powered chatroom](https://gitter.im/MacDownApp/macdown). Or you can just open a new issue on [GitHub](https://github.com/MacDownApp/macdown) (but please make sure it’s not already posted yet!), or, even better, open a pull request.
+
+But first, please enjoy the new MacDown. Believe me, it is good. :D
+
+
+[mathjax]: http://www.mathjax.org
+[hoedown]: https://github.com/hoedown/hoedown
+[kramdown]: http://kramdown.gettalong.org/syntax.html#math-blocks
+[^1]: It would still require Internet connection to download math fonts if you export to HTML, unless you install them locally.
+[^2]: Assuming you install MacDown in `/Applications`. If your installation locates somewhere else (Homebrew Cask installs MacDown 0.4 to `/opt/homebrew-cask/Caskroom/macdown/0.4/MacDown.app`, for example).

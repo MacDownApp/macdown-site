@@ -1,4 +1,4 @@
-{% extends 'page.html' %}
+{% extends 'barepage.html' %}
 
 {% block styles %}
 {{ super() }}
@@ -201,6 +201,8 @@
     </div>
   </dd>
 </dl>
+
+{% include 'includes/download_link.html' %}
 
 {% endblock content %}
 

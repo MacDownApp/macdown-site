@@ -1,0 +1,24 @@
+title: Short Notice for Homebrew Cask Users
+---
+author: Tzu-ping Chung
+---
+pub_date: 2015-01-26
+---
+content:
+
+MacDown has been updated. The most recent version now is 0.4.2 ([release notes](/history/stable/#version_578)). This has been a while, so there are quite some new things, both bug-fixes and minor improvements—nothing too interesting if you’re not looking for them. But I still encourage you to update, as always.
+
+If you installed MacDown with [Homebrew Cask], however, you might notice that there’s no new version on it. But no, certainly you are not forgotten! This is a side effect as we have moved from a versioned cask to use a [rolling, unversioned download](https://github.com/caskroom/homebrew-cask/blob/master/CONTRIBUTING.md#examples) link. This means that we no longer depend on Homebrew Cask to publish updates, and you will need to use the built-in update mechanism now.
+
+And it’s totally normal if you don’t understand any of the above. Just do this:
+
+```bash
+brew cask uninstall macdown
+brew cask install macdown
+```
+
+and you will be all right!
+
+This should have been posted earlier, when I released the update. But things intervene and this is a bit delayed. I hope this is not too late. Sorry for the inconvenience.
+
+[Homebrew Cask]: http://caskroom.io

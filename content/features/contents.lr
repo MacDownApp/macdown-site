@@ -1,5 +1,7 @@
 title: Main Features
 ---
+has_download_link: true
+---
 content:
 
 ### Markdown Rendering

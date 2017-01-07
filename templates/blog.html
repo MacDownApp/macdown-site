@@ -1,11 +1,29 @@
-{% extends "layout.html" %}
-{% from "macros/blog.html" import render_blog_post %}
-{% from "macros/pagination.html" import render_pagination %}
-{% block title %}{{ this.title }}{% endblock %}
-{% block body %}
-  {% for child in this.pagination.items %}
-    {{ render_blog_post(child, from_index=true) }}
-  {% endfor %}
+{% extends 'barepage.html' %}
 
-  {{ render_pagination(this.pagination) }}
-{% endblock %}
+{% from 'macros/blog.html' import render_blog_post_list_item %}
+{% from 'macros/pagination.html' import render_pagination %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ 'static/styles/blog.css'|url }}">
+{% endblock styles %}
+
+{% block pagetitle %}
+{{ super() }}
+{# <a href="#" class="fi-rss" data-dropdown="feed-dropdown"></a>
+<ul id="feed-dropdown" class="f-dropdown" data-dropdown-content>
+  <li><a href="{% url 'blog:atom1' %}">{% trans 'Atom 1.0' %}</a></li>
+  <li><a href="{% url 'blog:rss201rev2' %}">{% trans 'RSS 2.0.1 revision 2' %}</a></li>
+</ul> #}
+{% endblock pagetitle %}
+
+{% block content %}
+<hr>
+<ul class="post-list">
+  {% for child in this.pagination.items %}
+  {{ render_blog_post_list_item(child, from_index=true) }}
+  {% endfor %}
+</ul>
+
+{# {{ render_pagination(this.pagination) }} #}
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'page.html' %}
+
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ '/static/styles/blog.css'|url }}">
+{% endblock styles %}
+
+
+{% block content %}
+<hr>
+
+<div class="post-meta">
+  {% if this.author %}by <span>{{ this.author }}</span>{% endif %}
+  {% if this.pub_date %}
+  at <span>{{ this.pub_date.strftime('%d %b, %Y') }}</span>
+  {% endif %}
+</div>
+
+{{ this.content }}
+
+{#<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>#}
+{% endblock content %}

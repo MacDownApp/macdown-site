@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 {% block titletag %}
-<title>{% block title %}{% endblock title %} — MacDown: The open source Markdown editor for macOS</title>
+<title>{% block title %}{{ this.title }}{% endblock title %} — MacDown: The open source Markdown editor for macOS</title>
 {% endblock titletag %}
 
 {% block styles %}
@@ -56,7 +56,16 @@
 </nav>
 
 <div class="content-wrapper">
-  {% block contentwrapper %}{% endblock contentwrapper %}
+  {% block contentwrapper %}
+  <div class="row">
+    <div class="medium-offset-1 medium-10 content columns">
+      <h1>
+        {% block pagetitle %}{{ this.title }}{% endblock pagetitle %}
+      </h1>
+      {% block content %}{% endblock content %}
+    </div>
+  </div>
+  {% endblock contentwrapper %}
 </div>
 
 <footer>

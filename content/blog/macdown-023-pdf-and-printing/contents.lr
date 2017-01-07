@@ -1,0 +1,43 @@
+title: MacDown 0.2.3: PDF and Printing
+---
+author: Tzu-ping Chung
+---
+pub_date: 2014-08-19
+---
+content:
+
+MacDown 0.2.3 is the third bug-fixing release for 0.2, plus a few extra goodies. The main “thing” in this release are fixes and improvements for printing PDF generation and support.
+
+## PDF Export
+
+From pretty much the beginning of the first MacDown release, there have been suggestions for adding a “Export to PDF” menu item to go along with the existing “Export to HTML” one. [Those](https://github.com/MacDownApp/macdown/issues/24) were [rejected](https://github.com/MacDownApp/macdown/issues/31), mainly because *OS X has PDF generation built-in*. If you navigate to **File → Print…**, you will find a “PDF” button at the bottom left corner, and clicking it reveals a few options…
+
+![PDF options in OS X Print dialog.](macos-print-pdf.png)
+
+…including **Save as PDF**. This can be used to export PDF, so there really is no need for individual OS X applications (as long as they use the system printing dialog) to implement a seperate export option, unless they provide additional export options, such as those provided by Pages, Keynote, etc..
+
+But I was a little surprised when I get asked again. And again. And there’s a [pull request](https://github.com/MacDownApp/macdown/pull/42) about it. And then there is a [review](https://medium.com/@Sarthaksharma0/mou-v-s-macdown-mac-ac35ecddae45) with this line:
+
+> Mou can export as PDF and HTML but Macdown can export in HTML format only.
+
+*(Side note: Please spell the application name as MacDown, with a capital D, not Macdown.)*
+
+Aside from the “one click is better than three” argument (which makes much sense), the most surprising part of people requesting this feature is that most people don’t seem to know that such feature exists in OS X. Which is the main reason that MacDown will from now on include the new Export menu:
+
+![New Export menu in MacDown 0.2.3.](macdown-export-menu.png)
+
+The PDF export works similarly as its HTML counterpart, but will always match styles in the preview, without the CSS and syntax highlighting options. Speaking of which…
+
+## Other Improvements
+
+The HTML export options now have [more sensible defaults](https://github.com/MacDownApp/macdown/issues/118), based on current application preferences. This should make exporting routines easier.
+
+And if you’re more into copying content directly from preview, instead of exporting the whole file, copy-pasting to web browsers (other than Safari, which already works) should now [preserve styles in the preview](https://github.com/MacDownApp/macdown/issues/115).
+
+The bundled Prism is also upgraded, meaning that you’ll get more language definitions for syntax highlighting, including Haskell, LaTeX, and Twig. I’ll update the [full language list](/features/) on the site later; you can also check out [Prism’s documentation](http://prismjs.com/test.html).
+
+---
+
+As always, you can grab the update in-app when notified, or [download](/download/v0.2.3/) it directly now. A full list of changes in this version is bundled with the in-app update. You can also view it on the Version [History](/history/stable/#version_372) page, or on [GitHub](https://github.com/MacDownApp/macdown/releases/tag/v0.2.3).
+
+Enjoy!

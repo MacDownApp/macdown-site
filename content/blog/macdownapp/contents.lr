@@ -1,0 +1,24 @@
+title: @MacDownApp
+---
+author: Tzu-ping Chung
+---
+pub_date: 2016-03-15
+---
+content:
+
+As you might know, I just added plug-in support in the latest MacDown 0.6 release. This opens a new avenue for those who want to add functionalities to MacDown.
+
+I have been actively preventing MacDown from getting some specific features I considered not essential for a simplicit text editor. Some of the most wanted include sidebar support, and integration with specific Internet services. With the new plug-in arcitecture, anyone is now free to implement any feature he or she wants, and those who don’t want it can just ignore its existence.
+
+To demonstrate how plug-ins work, I have created a simple plug-in called ”[Gist it!]” that uploads the current document as a [GitHub Gist] through [GitHub’s web API]. I also attached some basic documentation, so that you can get a better idea on how things work. I am very excited about this new feature, and look forward for the community to come up more new ideas to utilise it.
+
+With the creation of the *Gist it!* repository, I now have three projects related to MacDown in my GitHub account (@uranusjr). This make things clutter, and difficult for others to find those repositories. Therefore I have created a new organization account for MacDown, [@MacDownApp], that will serve as an umbrella for all MacDown-related repositories, including MacDown itself, this site, and all future asset, dependency, and plug-in projects that we may need.
+
+Repositories previously under my account have already been migrated. Old links will continue to redirect traffic to new URLs, thanks to GitHub, but I think it is still a good idea to edit any link you might have pointed to the old location. Thanks!
+
+
+
+[Gist it!]: https://github.com/MacDownApp/macdown-gistit
+[GitHub Gist]: http://gist.github.com/
+[GitHub’s web API]: https://developer.github.com/v3/
+[@MacDownApp]: https://github.com/MacDownApp
