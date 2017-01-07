@@ -1,0 +1,11 @@
+{# {% if latest_version %} #}
+<div class="link-block">
+  <a href="{{ '/download/latest/'|url }}" class="download button" target="_blank">
+  {#{% blocktrans with version=latest_version size=latest_version.length|volumize %}#}
+  Download MacDown<br>
+  {#<span class="sub">{{ version }}, {{ size }}</span>
+  {% endblocktrans %}#}
+  </a>
+  <p class="download-alt">…or with <a href="http://caskroom.io">Homebrew Cask</a>: <code>brew cask install macdown</code>.</p>
+</div>
+{# {% endif %} #}

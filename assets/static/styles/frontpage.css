@@ -1,0 +1,32 @@
+header {
+    height: 300px;
+    padding-top: 22px;
+    margin-bottom: 30px;
+}
+.logo-block, .title-block {
+    float: left;
+}
+.logo-block {
+    width: 300px;
+}
+.title-block .title {
+    font-weight: bold;
+    font-size: 300%;
+    padding-top: 90px;
+    margin-bottom: 0.25em;
+}
+.logo {
+    height: 256px;
+}
+@media (max-width: 968px) {
+    .logo-block, .title-block {
+        float: none;
+        width: 100%;
+    }
+    .title-block {
+        text-align: center;
+    }
+    .title-block .title {
+        padding: 0;
+    }
+}

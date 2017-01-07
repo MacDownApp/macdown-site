@@ -1,0 +1,97 @@
+html {
+    min-height: 100%;
+}
+body {
+    height: 100%;
+}
+.content-wrapper {
+    min-height: 100%;
+    margin-top: -45px;
+    padding-top: 45px;
+    padding-bottom: 110px;
+}
+
+.top-bar .title-area {
+    padding-left: 1.5em;
+}
+.top-bar .title-area .name a {
+    font-size: 110%;
+    font-weight: bold;
+    padding-left: 0.5em;
+    margin: auto 0.5em;
+}
+.top-bar .left li a {
+    font-size: 90%;
+    text-align: center;
+}
+.top-bar .left > li > a {
+    font-size: 110%;
+}
+footer {
+    background: #333;
+    color: #fff;
+    font-size: 80%;
+    line-height: 150%;
+    margin-top: -75px;
+    padding: 20px;
+    height: 75px;
+}
+footer > div {
+    text-align: center;
+}
+footer .links > span:after {
+    content: "|";
+    padding-left: 10px;
+    padding-right: 10px;
+}
+footer .links > span:last-child:after {
+    content: none;
+}
+
+.post-list {
+    list-style: none;
+    margin-top: 2em;
+}
+.post-list li {
+    margin: 0.25em auto;
+}
+.post-list .date {
+    display: inline-block;
+    width: 7em;
+    font-family: monospace;
+}
+.post-list .sep {
+    font-family: monospace;
+    font-size: 125%;
+    margin-right: 0.5em;
+    vertical-align: -.1em;
+}
+.post-list a {
+    font-size: 125%;
+    vertical-align: -.1em;
+}
+
+.paypal-box form, .paypal-box table {
+    width: 100%;
+}
+
+/* Override Foundation's code block styling to match Prism's. */
+pre {
+    background: #f5f2f0;
+    padding: 1em;
+    padding-left: 2em;
+}
+pre code {
+    font-weight: normal;
+    color: #000;
+}
+
+/* Mobile only. */
+@media only screen and (max-width: 40em) {
+
+    footer {
+        margin-top: -95px;
+        height: 95px;
+    }
+
+}

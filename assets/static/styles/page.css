@@ -1,0 +1,37 @@
+.content.columns {
+    margin-top: 2em;
+    text-align: justify;
+}
+.accordion {
+    margin-bottom: 2.5em;
+}
+.accordion .accordion-navigation > a:first-child {
+    font-size: 120%;
+}
+img {
+    display: block;
+    margin: 10px auto 30px auto;
+    max-width: 100%;
+}
+.squeeze {
+    margin-top: -16px;
+    margin-bottom: -27px;
+}
+
+.link-block {
+    margin-top: 2em;
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+.download.button {
+    font-size: 110%;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+.download.button .sub {
+    font-size: 70%;
+    font-weight: normal;
+}
+.download-alt {
+    font-size: 75%;
+}
