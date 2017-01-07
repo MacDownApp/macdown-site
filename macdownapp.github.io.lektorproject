@@ -1,2 +1,5 @@
 [project]
 name = macdownapp.github.io
+
+[servers.ghpages]
+target = ghpages://MacDownApp/macdownapp.github.io
