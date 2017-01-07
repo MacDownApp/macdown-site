@@ -1,0 +1,211 @@
+{% extends 'page.html' %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ '/static/styles/frontpage.css'|url }}">
+{% endblock styles %}
+
+{% block content %}
+
+<p>These are answers to some questions I get asked a lot.</p>
+
+<h2>Installation and System Requirements</h2>
+
+<dl class="accordion" data-accordion>
+  <dd class="accordion-navigation">
+    <a href="#unidentified">
+      macOS Says You Are an Unidentified Developer!
+    </a>
+    <div id="unidentified" class="content">
+      <p>
+        When you first download and open MacDown,
+        you might see a window like this:
+      </p>
+
+      <img class="squeeze"
+          src="{{ '/static/images/macdown-cant-open.png'|url }}"
+          alt="macOS app block warning.">
+
+      <p>
+        This is because I do not own a registered OS X developer certificate
+        (which can be obtained if and only if you
+        <a href="https://developer.apple.com/programs/mac/">pay</a>
+        $99 a year to Apple), and macOS does not allow installation of
+        applications without certificates by default. This can be overridden
+        in the “Security &amp; Privacy” pane in System Preferences:
+      </p>
+
+      <img class="squeeze"
+          src="{{ '/static/images/security-privacy-preferences.png'|url }}"
+          alt="macOS Security &amp; Privacy preferences.">
+
+      <p>
+        Click “Open Anyway” to authorise MacDown, or select the “Anywhere”
+        radio button to allow all unidentified apps (including MacDown) to
+        open in the future. You may need to click at the lock in the bottom
+        left and enter your password first.
+      </p>
+    </div>
+  </dd>
+  <dd class="accordion-navigation">
+    <a href="#ports">Will You Support Other Platforms?</a>
+    <div id="ports" class="content">
+      <p>
+        I did have plans to build some kind of ports.
+        Most of MacDown’s core functionalities are based on C libraries
+        (except autocomplete), so it won’t be hard to replicate something
+        similar with other GUI frameworks.
+        I don’t currently have the time, but I’ll be more than happy to share
+        the details if you are interested.
+      </p>
+    </div>
+  </dd>
+  <dd class="accordion-navigation">
+    <a href="#older-osx">How About macOS Versions Earlier Than 10.8?</a>
+    <div id="older-osx" class="content">
+      <p>
+        The main problem here is that I don’t have enough resources to
+        promise API compatibility without seriously slowing down development.
+        Unless I build some kind of CI services, backward compatibility is
+        easier said than done.
+      </p>
+
+      <p>
+        One possibility here, however, is to provide support via a
+        cross-platform port (see previous question). As far as I know,
+        most cross-platform GUI frameworks support all the way back to 10.6,
+        so this could be a stone that kills two birds.
+        <em>If</em> someone does that.
+      </p>
+    </div>
+  </dd>
+</dl>
+
+<h2>Features</h2>
+
+<dl class="accordion" data-accordion>
+  <dd class="accordion-navigation">
+    <a href="#gfm">Do You Support GFM?</a>
+    <div id="gfm" class="content">
+      <p>
+        <a href="https://github.github.com/github-flavored-markdown/">GFM</a>
+        (GitHub Flavoured Markdown) is a mix of standard Markdown,
+        and some non-standard syntaxes that add additional functionalities
+        and/or more ease for a particular group of people to write.
+        MacDown provides lots of switches to let you choose what
+        non-standard syntax(es) you want to use,
+        and you can get almost all features in GFM if you configure
+        them correctly.
+        Check out the <a href="{{ '/features/'|url }}">Features</a> page
+        to find out what extensions MacDown provides.
+      </p>
+      <p>
+        MacDown can be compatible to GFM,
+        except for some minor structural differences in the resulting HTML,
+        by enabling (only) the follwing options in the “Markdown”
+        preference pane:
+      </p>
+      <ul>
+        <li>Tables.</li>
+        <li>Fenced code blocks.</li>
+        <li>Strikethrough.</li>
+        <li>Autolink.</li>
+      </ul>
+      <p>
+        And “Task list syntax” in the <strong>Rendering</strong>
+        preference pane.
+      </p>
+    </div>
+  </dd>
+  <dd class="accordion-navigation">
+    <a href="#vim">Will There Be a VIM Mode?</a>
+    <div id="vim" class="content">
+      <p>
+        No. VIM edit mode is a topic too big.
+        I leveraged a lot on OS X’s built-in text editing functionalities
+        when implementing the editor,
+        and implementing VIM mode means that I’ll need to tear them all
+        down and start from the ground up.
+        This doesn’t fit well with the direction of the project.
+      </p>
+      <p>
+        There are several VIM plugins that can achieve similar things,
+        just search for vim markdown preview in your search engine.
+        Or I would recommend Sublime Text instead if you really want
+        something more GUI.
+        Enabling extensions like <em>Vintage</em>, <em>Markdown Extended</em>
+        (or <em>MarkdownEditing</em> or others, pick what suits you), and
+        <em>Markdown Preview</em> should be enough.
+      </p>
+    </div>
+  </dd>
+  <dd class="accordion-navigation">
+    <a href="#question">
+      I Have a Question/Problem/Suggestion. Where Should I Post It?
+    </a>
+    <div id="question" class="content">
+      <p>
+        You can report any issues you encountered with MacDown at the project’s
+        <a href="https://github.com/MacDownApp/macdown/issues">
+          GitHub issue page</a>. Suggestions are also welcomed.
+        If it is about this <em>site</em>, not MacDown itself,
+        you can report them
+        <a href="https://github.com/MacDownApp/macdownapp.github.io/issues">
+          here</a> instead. Please feel free to offer any advices,
+        or send me a pull request with your implementation.
+      </p>
+      <p>
+        There’s one exception to this: MacDown does not accept new code
+        block syntax highlighting rules. Refer to the
+        <a href="{{ '/features/'|url }}#syntax_highlighting_contributing">
+          relevant section</a> for more information.
+      </p>
+    </div>
+  </dd>
+</dl>
+
+<h2>Miscellaneous</h2>
+
+<dl class="accordion" data-accordion>
+  <dd class="accordion-navigation">
+    <a href="#swift">Why Didn’t You Use Swift?</a>
+    <div id="swift" class="content">
+      <p>
+        MacDown was initiated shortly after Apple announced Swift.
+        While Swift is truely a nice language,
+        I do not think it is quite production-ready yet.
+        I would very much like to use it in the future, though.
+      </p>
+    </div>
+  </dd>
+  <dd class="accordion-navigation">
+    <a href="#donation">Do You Take Donations?</a>
+    <div id="donation" class="content">
+      <p>Yes, I do. You guys are so persistent. :)</p>
+      <p>
+        Use the form below to tip me through Paypal.
+        You can also fill in the text box if you want me to say something on
+        Twitter about it.
+        Please understand that this is purely a tipping option.
+        I thank you for your kindness, but will not provide anything of any
+        form whatsoever in return for the donation.
+      </p>
+      {% include 'includes/paypal_form.html' %}
+      <p>
+        Oh, and if you perfer to buy me a drink <em>personally</em>,
+        just <a href="https://twitter.com/uranusjr">send me a tweet</a>
+        when you visit
+        <a href="http://en.wikipedia.org/wiki/Taipei">Taipei, Taiwan</a>,
+        where I live. I look forward to meeting you!
+      </p>
+    </div>
+  </dd>
+</dl>
+
+{% endblock content %}
+
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ '/static/scripts/faq.js'|url }}"></script>
+{% endblock scripts %}

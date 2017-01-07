@@ -1,0 +1,49 @@
+title: Main Features
+---
+content:
+
+### Markdown Rendering
+
+[Hoedown](https://github.com/hoedown/hoedown) is used internally to render Markdown into HTML. This makes MacDown’s live preview both efficient and very configurable. It also supports lots of non-standard syntactic features, including the very widely-used [fenced code blocks with language identifiers](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks). You can find all the available configurations in MacDown’s Preferences pane.
+
+![Markdown syntax preferences](preferences-markdown.png)
+
+
+### Additional Rendering Tools
+
+![Rendering preferences](preferences-rendering.png)
+
+MacDown provides various tools that add additional processing to the rendered HTML, including:
+
+* TeX-like math syntax, including `$$...$$`, `\\[...\\]`, `\\(...\\)`, and (optionally) `$...$` blocks.
+* GFM [task lists](https://help.github.com/articles/writing-on-github#task-lists).
+* Jekyll [front-matter](http://jekyllrb.com/docs/frontmatter/).
+
+
+### Syntax Highlighting
+
+Syntax highlighting in fenced code blocks with language identifiers are rendered by [Prism](http://prismjs.com).
+
+![Syntax highlighting example](syntax-highlighting-demo.png)
+
+<!--
+Currently the following language IDs are supported:
+
+    <table>
+      <thead><tr><th>Language ID</th><th>Notes</th></tr></thead>
+      <tbody>
+        {% for lang, info in language_infos %}
+        <tr><td><code>{{ lang }}</code></td><td>{{ info|safe }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+-->
+
+<h4 id="syntax_highlighting_contributing">Contributing to the Language List</h4>
+
+MacDown accepts pull requests on aliases to existing languages, but **not** new syntax highlighting rules. If you wish to provide additional language definitions and/or themes, please visit [Prism’s project page](https://github.com/PrismJS/prism) and submit them there. I will include updates from Prism after your pull request is accepted.
+
+
+### Auto-completion
+
+I am spoiled, as a programmer, by some pretty advanced auto-completion various IDEs offer. I implemented MacDown’s auto-completion to suit my own need. Hope it suits you too—or you can turn it off if you wish to.

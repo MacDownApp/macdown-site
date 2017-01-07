@@ -1,6 +1,25 @@
 {% extends 'layout.html' %}
 
+{% block title %}{{ this.title }}{% endblock title %}
+
 {% block styles %}
 {{ super() }}
-<link rel="stylesheet" href="{{ 'static/styles/page.css'|url }}">
+<link rel="stylesheet" href="{{ '/static/styles/page.css'|url }}">
 {% endblock styles %}
+
+
+{% block contentwrapper %}
+<div class="row">
+  <div class="medium-offset-1 medium-10 content columns">
+    <h1>{{ this.title }}</h1>
+
+    {% block content %}
+    {{ this.content }}
+    {% endblock content %}
+
+    {% block download_link %}
+    {% include 'includes/download_link.html' %}
+    {% endblock download_link %}
+  </div>
+</div>
+{% endblock contentwrapper %}

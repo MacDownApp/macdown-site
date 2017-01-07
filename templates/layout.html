@@ -10,8 +10,8 @@
 {% endblock titletag %}
 
 {% block styles %}
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.3/css/foundation.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.3/css/foundation.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
 <link rel="stylesheet" href="{{ '/static/styles/site.css'|url }}">
 {% endblock styles %}
 
@@ -55,14 +55,16 @@
   </section>
 </nav>
 
-<div class="content-wrapper">{% block content %}{% endblock %}</div>
+<div class="content-wrapper">
+  {% block contentwrapper %}{% endblock contentwrapper %}
+</div>
 
 <footer>
   <div class="copyright">
     Copyright © 2014 <a href="https://uranusjr.com">Tzu-ping Chung</a>. Icon design by <a href="http://mdznr.com/">Matt Zanchelli</a>.
     Built with
     <a href="https://www.djangoproject.com">Django</a>,
-    <a href="http://foundation.zurb.com">Foundation</a>, and ❤️.
+    <a href="https://foundation.zurb.com">Foundation</a>, and ❤️.
   </div>
   <div class="links">
     <span><a href="https://github.com/MacDownApp">MacDown on GitHub</a></span>
@@ -72,6 +74,13 @@
   <!-- TODO: Fork button here. -->
   <!-- http://markdotto.com/2011/11/26/introducing-unofficial-github-buttons/ -->
 </footer>
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.2/fastclick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/js/foundation.min.js"></script>
+<script>$(document).foundation();</script>
+{% endblock scripts %}
 
 </body>
 

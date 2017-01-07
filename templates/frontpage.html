@@ -6,10 +6,10 @@
 
 {% block styles %}
 {{ super() }}
-<link rel="stylesheet" href="{{ 'static/styles/frontpage.css'|url }}">
+<link rel="stylesheet" href="{{ '/static/styles/frontpage.css'|url }}">
 {% endblock styles %}
 
-{% block content %}
+{% block contentwrapper %}
 
 <header>
   <div class="row">
@@ -68,4 +68,4 @@
   </div>
 </div>
 
-{% endblock content %}
+{% endblock contentwrapper %}
