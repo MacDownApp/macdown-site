@@ -3,3 +3,6 @@ name = macdownapp.github.io
 
 [servers.ghpages]
 target = ghpages://MacDownApp/macdownapp.github.io
+
+[packages]
+lektor-disqus-comments = 0.2
