@@ -15,6 +15,13 @@
 <link rel="stylesheet" href="{{ '/static/styles/site.css'|url }}">
 {% endblock styles %}
 
+{% block extrahead %}
+<meta property="og:image"
+    content="{{ site.make_absolute_url('/static/images/logo.png') }}">
+<meta property="og:description"
+    content="MacDown is an open source Markdown editor for macOS, released under the MIT License.">
+{% endblock extrahead %}
+
 </head>
 
 <body>

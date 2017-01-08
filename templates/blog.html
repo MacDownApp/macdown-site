@@ -7,6 +7,11 @@
 <link rel="stylesheet" href="{{ '/static/styles/blog.css'|url }}">
 {% endblock styles %}
 
+{% block extrahead %}
+{{ super() }}
+{% include 'includes/blog_alternate.html' %}
+{% endblock extrahead %}
+
 {% block pagetitle %}
 {{ super() }}
 <a href="#" class="fi-rss" data-dropdown="feed-dropdown"></a>
