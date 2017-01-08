@@ -15,7 +15,7 @@
       Version {{ release.version }}
       <span class="info attribute">
         {{ release.pub_datetime.strftime('%Y-%m-%d') }}
-        ({{ release.build_number }})
+        ({{ release.build_number|nomalize_float }})
       </span>
       <a href="{{ release.download_url }}" class="download attribute">
         Download</a>
