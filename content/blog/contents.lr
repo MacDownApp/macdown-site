@@ -1,3 +1,10 @@
 _model: blog
 ---
-title: The Blog
+title: The MacDown Blog
+---
+summary:
+
+<p>MacDown is an open source Markdown editor for macOS, released under the MIT License. It is heavily influenced by <a href="https://twitter.com/chenluois">Chen Luo</a>’s <a href="http://mouapp.com">Mou</a>.</p>
+
+---
+author: Tzu-ping Chung

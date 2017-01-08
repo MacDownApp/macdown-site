@@ -4,16 +4,16 @@
 
 {% block styles %}
 {{ super() }}
-<link rel="stylesheet" href="{{ 'static/styles/blog.css'|url }}">
+<link rel="stylesheet" href="{{ '/static/styles/blog.css'|url }}">
 {% endblock styles %}
 
 {% block pagetitle %}
 {{ super() }}
-{# <a href="#" class="fi-rss" data-dropdown="feed-dropdown"></a>
+<a href="#" class="fi-rss" data-dropdown="feed-dropdown"></a>
 <ul id="feed-dropdown" class="f-dropdown" data-dropdown-content>
-  <li><a href="{% url 'blog:atom1' %}">{% trans 'Atom 1.0' %}</a></li>
-  <li><a href="{% url 'blog:rss201rev2' %}">{% trans 'RSS 2.0.1 revision 2' %}</a></li>
-</ul> #}
+  <li><a href="{{ '/blog/feed/atom.xml'|url }}">Atom</a></li>
+  {# <li><a href="{% url 'blog:rss201rev2' %}">{% trans 'RSS 2.0.1 revision 2' %}</a></li> #}
+</ul>
 {% endblock pagetitle %}
 
 {% block content %}

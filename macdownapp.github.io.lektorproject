@@ -1,8 +1,10 @@
 [project]
 name = macdownapp.github.io
+url = https://macdown.github.io
 
 [servers.ghpages]
 target = ghpages://MacDownApp/macdownapp.github.io
 
 [packages]
+lektor-atom = 0.2
 lektor-disqus-comments = 0.2
