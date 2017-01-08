@@ -7,6 +7,6 @@ setup(
     entry_points={
         'lektor.plugins': [
             'humanize = lektor_humanize:HumanizePlugin',
-        ]
+        ],
     },
 )

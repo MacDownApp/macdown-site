@@ -28,6 +28,8 @@ Syntax highlighting in fenced code blocks with language identifiers are rendered
 
 ![Syntax highlighting example](syntax-highlighting-demo.png)
 
+See [Code Block Highlighting](./code-block-highlighting/) page for a complete list of syntax supported.
+
 <!--
 Currently the following language IDs are supported:
 

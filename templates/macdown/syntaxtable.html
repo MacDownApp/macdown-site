@@ -1,0 +1,8 @@
+<table>
+  <thead><tr><th>Language ID</th><th>Notes</th></tr></thead>
+  <tbody>
+    {% for lang, info in language_infos %}
+    <tr><td><code>{{ lang }}</code></td><td>{{ info|safe }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,19 @@
+{
+    "apacheconf": "Configuration syntax for the <a href=\"http://httpd.apache.org\">Apache HTTP Server</a>.",
+    "aspnet": "ASP.NET markup in <code>.aspx</code> files.",
+    "clike": "Generic syntax for C-like languages.",
+    "cpp": "C++",
+    "csharp": "C#",
+    "git": "Syntax used in Git commit messages.",
+    "http": "Syntax used in <a href=\"http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol\">HTTP</a> requests and responses.",
+    "ini": "Windows INI format.",
+    "markup": "Generic *ML syntax, e.g. HTML, XML, etc.",
+    "nasm": "The Netwide Assembler.",
+    "objectivec": "Objective-C.",
+    "python": "Python 2.",
+    "sas": "<a href=\"https://en.wikipedia.org/wiki/SAS_language\">SAS</a>. <em>Not</em> an alias to <code>sass</code>.",
+    "sass": "SASS (SASS)",
+    "scss": "SASS (SCSS)",
+    "swift": "Apple’s Swift programming language. <em>Not</em> <a href=\"http://swift-lang.org/\">the parallel scripting language</a>.",
+    "yaml": "YAML"
+}

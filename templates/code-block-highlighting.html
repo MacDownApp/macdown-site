@@ -1,0 +1,14 @@
+{% extends 'page.html' %}
+
+{% block content %}
+
+<p>Below is a list of syntax names and aliases supported in MacDown’s fenced block code markup. You can turn on this feature by enabling <strong>Syntax highlighted code block</strong> in the <strong>Rendering</strong> Preference pane.</p>
+
+{{ render_syntax_table() }}
+
+
+<h2>Contributing</h2>
+
+<p>MacDown accepts pull requests on aliases to existing languages, but <strong>not</strong> new syntax highlighting rules. If you wish to provide additional language definitions and/or themes, please visit <a href="https://github.com/PrismJS/prism">Prism’s project page</a> and submit them there. I will include updates from Prism after your pull request is accepted.</p>
+
+{% endblock content %}
