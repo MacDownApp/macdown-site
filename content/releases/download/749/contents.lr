@@ -1,0 +1,52 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 749
+---
+version: 0.6
+---
+dsa_signature: MC0CFQCAOZigewiQnEb4q9jNIIOIixJU8AIUBg4sBQkiDigXBdOKPCrIMzfYMaw=
+---
+length: 8123167
+---
+note:
+
+This update adds new functionalities to MacDown, and provides fixes to
+bugs and usability issues, etc. Recommended for all users.
+
+### Major features
+
+* Experimental plug-in architecture. MacDown can now accept plug-in
+ bundles to add functionalities at runtime.
+* Scripting support. You can now use AppleScript and JavaScript (JXA)
+ to automate interaction with MacDown programmatically.
+
+### Resolved bugs
+
+* Fixed a crash in the command line utility if filenames contain
+ special characters.
+* Fixed strange behaviours when toggling block syntaxes in a document
+ caused by unintended integer overflow and underflow.
+
+### Minor features and enhancements
+
+* MacDown now updates the document content when file is edited with
+ an external application. This prevents you from accidentally saving
+ an older version of the document.
+* Convert lines to ordered list.
+* The save dialog now always appends .md automatically when saving an
+ untitled file. You can still change the extension if you want.
+* The editor is now read-only when you hide it. Hotkeys still work
+ (this is considered a bug that should be fixed in the future).
+* The HTML document is now rendered through Handlebars.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.6/MacDown.app.zip
+---
+pub_datetime: 2016-03-10 00:00:00
