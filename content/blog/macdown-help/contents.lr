@@ -64,8 +64,9 @@ will break
     ========
 
     Header 2
-    --------
+     --------
 
+<!-- This extra space works around a Lektor bug. See lektor/lektor#345. -->
 or
 
     # Header 1
@@ -83,7 +84,7 @@ Just put angle brackets around an email and it becomes clickable: <uranusjr@gmai
 `<uranusjr@gmail.com>`
 
 Same thing with urls: <http://macdown.uranusjr.com>
-` <http://macdown.uranusjr.com>`
+`<http://macdown.uranusjr.com>`
 
 Perhaps you want to some link text like this: [Macdown Website](http://macdown.uranusjr.com "Title")
 `[Macdown Website](http://macdown.uranusjr.com "Title")` (The title is optional)
@@ -308,6 +309,7 @@ title: "Macdown is my friend"
 date: 2014-06-06 20:00:00
 ----
 ```
+<!-- Extra dash to escape for Lektor. -->
 
 ### Render newline literally
 Normally I require you to put two spaces and a newline (aka return) at the end of a line in order to create a line break. If you like, I can render a newline any time you end a line with a newline. However, if you enable this, markdown that looks lovely when I render it might look pretty funky when you let some *other* program render it.
