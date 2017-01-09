@@ -25,20 +25,29 @@ class Renderer(object):
     """Wrapper for a Remarkable object do perform Markdown rendering.
     """
     def __init__(self):
-        # import WebKit   # From PyObjC. Put here to defer to rendering time.
         self.ctx = WebKit.JSContext.alloc().init()
         self.ctx.evaluateScript_(get_remarkable_script())
-        self.ctx.evaluateScript_('var rmkb = new Remarkable({ html: true });')
+        self.ctx.evaluateScript_("""
+            var rmkb = new Remarkable('full', { html: true });
+            rmkb.block.ruler.enable([ 'footnote' ]);
+            rmkb.inline.ruler.enable([
+                'footnote_inline',
+                'ins', 'mark',
+                'sub', 'sup'
+            ]);
+        """)
 
     def render(self, md):
         self.ctx.setObject_forKeyedSubscript_(md, 'md')
-        result = self.ctx.evaluateScript_('rmkb.render(md)')
+        result = self.ctx.evaluateScript_('rmkb.render(md);')
         return result
 
 
 class Markdown(object):
     """Representation of a Markdown object.
     """
+    renderer = Renderer()
+
     def __init__(self, source):
         self.source = source
 
@@ -47,7 +56,7 @@ class Markdown(object):
 
     def __getattr__(self, key):
         if key == '_html':
-            html = Renderer().render(self.source)
+            html = self.renderer.render(self.source)
             self._html = html
             return html
         return super(Markdown, self).__getattr__(key)
