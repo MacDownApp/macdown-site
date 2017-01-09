@@ -1,4 +1,6 @@
+__pycache__/
 *.egg-info
+*.py[co]
 
 /temp/
-/packages/lektor-macdown/_cache/
+/packages/lektor-macdown/lektor_macdown/_cache/

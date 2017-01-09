@@ -1,31 +1,14 @@
-import base64
-import functools
 import json
 import os
 import re
 
-import jinja2
-
-from lektor.pluginsystem import Plugin
-from six.moves import urllib
+from .utils import cached, download_endpoint, get_endpoint
 
 
-GITHUB_API_BASE_URL = 'https://api.github.com/'
 STABLE_TAG_PATTERN = re.compile(r'^v[\d\.]+$')
-CACHE_DIR = os.path.join(os.path.dirname(__file__), '_cache')
 
 
-def get_endpoint(path, params=None):
-    url = urllib.parse.urljoin(GITHUB_API_BASE_URL, path)
-    if params is not None:
-        url = url + '?' + '&'.join('{k}={v}'.format(
-            k=key, v=params[key],
-        ) for key in params)
-    response = urllib.request.urlopen(url)
-    return json.loads(response.read().decode('utf8'))
-
-
-def get_latest_tag():
+def get_latest_stable_macdown_tag():
     tag_data_list = get_endpoint('/repos/MacDownApp/macdown/tags')
     tag = None
     for tag_data in tag_data_list:
@@ -37,36 +20,6 @@ def get_latest_tag():
     return tag
 
 
-def download_endpoint(endpoint, ref, encoding='utf-8'):
-    data = get_endpoint(endpoint, params={'ref': ref})
-    content_str = base64.b64decode(data['content']).decode(encoding)
-    return content_str
-
-
-def cached(filename):
-    """Cache function results in file specified.
-    """
-    def _cached(func):
-
-        @functools.wraps(func)
-        def wrapped(*args, **kwargs):
-            if not os.path.exists(CACHE_DIR):
-                os.makedirs(CACHE_DIR)
-            cache_fs = os.path.join(CACHE_DIR, filename)
-            if os.path.exists(cache_fs):
-                with open(cache_fs) as f:
-                    value = f.read()
-            else:
-                value = func(*args, **kwargs)
-                with open(cache_fs, 'w') as f:
-                    f.write(value)
-            return value
-
-        return wrapped
-
-    return _cached
-
-
 @cached('prism-components.json')
 def get_prism_language_data():
     """Use the GitHub API to get Prism languages.
@@ -74,7 +27,7 @@ def get_prism_language_data():
     # Get Git URL of Prism submodule at the tag.
     data = get_endpoint(
         '/repos/MacDownApp/macdown/contents/Dependency/prism',
-        params={'ref': get_latest_tag()},
+        params={'ref': get_latest_stable_macdown_tag()},
     )
     components_str = download_endpoint(
         endpoint='/repos/PrismJS/prism/contents/components.js',
@@ -100,7 +53,7 @@ def get_language_aliase_data():
             '/repos/MacDownApp/macdown/contents/MacDown/Resources/'
             'syntax_highlighting.json'
         ),
-        ref=get_latest_tag(),
+        ref=get_latest_stable_macdown_tag(),
     )
     return info_str
 
@@ -111,7 +64,11 @@ def get_language_notes():
     The values are raw HTML content. A key can be either a Prism language ID,
     or a MacDown language alias.
     """
-    path = os.path.join(os.path.dirname(__file__), 'language_notes.json')
+    path = os.path.join(
+        os.path.dirname(__file__),
+        '_data',
+        'language_notes.json',
+    )
     with open(path) as f:
         return json.load(f)
 
@@ -137,19 +94,3 @@ def get_language_infos():
 
     infos = [(key, infos[key]) for key in sorted(infos.keys())]
     return infos
-
-
-class MacDownPlugin(Plugin):
-
-    name = 'MacDown'
-
-    def on_setup_env(self, **extra):
-
-        def render_syntax_table():
-            t = self.env.jinja_env.get_template('macdown/syntaxtable.html')
-            return jinja2.Markup(t.render(language_infos=language_infos))
-
-        language_infos = get_language_infos()
-        self.env.jinja_env.globals.update({
-            'render_syntax_table': render_syntax_table,
-        })
