@@ -4,7 +4,7 @@ setup(
     name='lektor-macdown',
     version='0.1',
     py_modules=['lektor_macdown'],
-    installs_requires=['six'],
+    installs_requires=['pyobjc-framework-webkit', 'six'],
     entry_points={
         'lektor.plugins': [
             'macdown = lektor_macdown:MacDownPlugin',
