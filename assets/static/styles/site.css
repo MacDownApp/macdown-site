@@ -18,7 +18,9 @@ body {
     padding-right: 1em;
 }
 
-
+div.katex-rendered {
+    text-align: center;
+}
 
 .top-bar .title-area {
     padding-left: 1.5em;

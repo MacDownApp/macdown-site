@@ -11,7 +11,7 @@ from lektor.types import Type
 from markupsafe import Markup
 
 from .utils import (
-    cached, download_endpoint, download_prism_script_files,
+    cached, download_endpoint, download_file, download_prism_script_files,
     get_prism_ref, get_prism_language_data, get_language_alias_data,
 )
 
@@ -91,20 +91,62 @@ def get_remarkable_script():
     return remarkable_script
 
 
+@cached('katex.min.js')
+def get_katex_script():
+    # TODO: Match this with MacDown's version.
+    katex_script = download_file(
+        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js',
+        encoding='utf-8',
+    )
+    return katex_script
+
+
+class JavaScriptError(Exception):
+    pass
+
+
+class JavaScriptRunner(object):
+
+    def __init__(self):
+        self.ctx = WebKit.JSContext.alloc().init()
+
+    def __setitem__(self, key, value):
+        self.ctx.setObject_forKeyedSubscript_(value, key)
+
+    def evaluate(self, script):
+        try:
+            script = script.read()
+        except AttributeError:
+            pass
+        result = self.ctx.evaluateScript_(script)
+        exception = self.ctx.exception()
+        if exception:
+            raise JavaScriptError(exception)
+        return result
+
+
 class Renderer(object):
     """Wrapper for a Remarkable object do perform Markdown rendering.
     """
     def __init__(self):
-        self.ctx = WebKit.JSContext.alloc().init()
+        self.runner = JavaScriptRunner()
 
         # Setup syntax highlighting.
         aliases = json.loads(get_language_alias_data())['aliases']
-        self.ctx.setObject_forKeyedSubscript_(aliases, 'aliases')
-        self.ctx.evaluateScript_(get_prism_script())
+        self.runner['aliases'] = aliases
+        self.runner.evaluate(get_prism_script())
+
+        # Setup math rendering.
+        self.runner.evaluate(get_katex_script())
 
         # Setup Remarkable.
-        self.ctx.evaluateScript_(get_remarkable_script())
-        self.ctx.evaluateScript_("""
+        self.runner.evaluate(get_remarkable_script())
+        ext_dir = os.path.join(
+            os.path.dirname(__file__),
+            '_data',
+            'remarkable-ext',
+        )
+        self.runner.evaluate("""
             var rmkb = new Remarkable('full', {
                 html: true,
                 highlight: function (str, lang) {
@@ -121,10 +163,14 @@ class Renderer(object):
                 'sub', 'sup'
             ]);
         """)
+        for name in os.listdir(ext_dir):
+            if name.endswith('.js'):
+                with open(os.path.join(ext_dir, name)) as f:
+                    self.runner.evaluate(f)
 
     def render(self, md):
-        self.ctx.setObject_forKeyedSubscript_(md, 'md')
-        result = self.ctx.evaluateScript_('rmkb.render(md);')
+        self.runner['md'] = md
+        result = self.runner.evaluate('rmkb.render(md);')
         return result
 
 

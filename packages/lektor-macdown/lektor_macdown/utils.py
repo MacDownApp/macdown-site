@@ -40,6 +40,14 @@ def download_endpoint(endpoint, ref, encoding='utf-8'):
     return content_str
 
 
+def download_file(url, encoding=None):
+    response = urllib.request.urlopen(url)
+    data = response.read()
+    if encoding:
+        return data.decode(encoding)
+    return data
+
+
 def cached(filename):
     """Cache function results in file specified.
     """
@@ -92,10 +100,9 @@ def download_prism_script_files():
     container_dir = os.path.join(CACHE_DIR, 'prism-{}'.format(ref))
     if os.path.isdir(container_dir):
         return container_dir
-    response = urllib.request.urlopen(
+    data = download_file(
         'https://github.com/PrismJS/prism/archive/{}.zip'.format(ref),
     )
-    data = response.read()
     with zipfile.ZipFile(io.BytesIO(data)) as zipf:
         zipf.extractall(path=CACHE_DIR)
     return container_dir
