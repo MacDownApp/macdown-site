@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+import json
+import os
 import sys
 
 import six
@@ -8,10 +10,78 @@ import WebKit
 from lektor.types import Type
 from markupsafe import Markup
 
-from .utils import cached, download_endpoint
+from .utils import (
+    cached, download_endpoint, download_prism_script_files,
+    get_prism_ref, get_prism_language_data, get_language_alias_data,
+)
 
 
 DISTRIB_EP = '/repos/jonschlinkert/remarkable/contents/dist/remarkable.min.js'
+
+
+def get_prism_dependency_map():
+    languages = json.loads(get_prism_language_data())['languages']
+    languages.pop('meta')
+
+    dependency_map = {}
+    for key, value in six.iteritems(languages):
+        requires = value.get('require', ())
+        if not isinstance(requires, (tuple, list)):
+            requires = [requires]
+        dependency_map[key] = requires
+    return dependency_map
+
+
+def resolve_prism_components(language_set, dependency_map):
+    """Resolve language dependency of a list of Prism components.
+
+    Dependencies are added as needed, and the items reordered to
+    produce a workable loading list.
+    """
+    resolved_list = []
+
+    def put_lang(lang):
+        try:
+            resolved_list.remove(lang)
+        except ValueError:  # Not found.
+            pass
+        resolved_list.append(lang)
+
+    def dependency_gen(lang):
+        try:
+            deps = dependency_map[lang]
+        except KeyError:
+            return
+        yield lang
+        for dep in deps:
+            yield dep
+            for dep_dep in dependency_gen(dep):
+                yield dep_dep
+
+    for lang in language_set:
+        for dep in dependency_gen(lang):
+            put_lang(dep)
+
+    resolved_list.append('core')
+    return reversed(resolved_list)
+
+
+def get_prism_script():
+    container_dir = os.path.join(download_prism_script_files(), 'components')
+
+    def read(name):
+        with open(os.path.join(container_dir, name)) as f:
+            return f.read()
+
+    content_map = {
+        name[6:-7]: read(name)
+        for name in os.listdir(container_dir)
+        if name.endswith('.min.js')
+    }
+    dependency_map = get_prism_dependency_map()
+    load_order = resolve_prism_components(content_map.keys(), dependency_map)
+    prism_script = '\n'.join(content_map[name] for name in load_order)
+    return prism_script
 
 
 @cached('remarkable.min.js')
@@ -26,9 +96,24 @@ class Renderer(object):
     """
     def __init__(self):
         self.ctx = WebKit.JSContext.alloc().init()
+
+        # Setup syntax highlighting.
+        aliases = json.loads(get_language_alias_data())['aliases']
+        self.ctx.setObject_forKeyedSubscript_(aliases, 'aliases')
+        self.ctx.evaluateScript_(get_prism_script())
+
+        # Setup Remarkable.
         self.ctx.evaluateScript_(get_remarkable_script())
         self.ctx.evaluateScript_("""
-            var rmkb = new Remarkable('full', { html: true });
+            var rmkb = new Remarkable('full', {
+                html: true,
+                highlight: function (str, lang) {
+                    lang = aliases[lang] || lang;
+                    var grammar = Prism.languages[lang];
+                    // Empty string means input is unchanged.
+                    return grammar ? Prism.highlight(str, grammar, lang) : '';
+                }
+            });
             rmkb.block.ruler.enable([ 'footnote' ]);
             rmkb.inline.ruler.enable([
                 'footnote_inline',

@@ -1,61 +1,7 @@
 import json
 import os
-import re
 
-from .utils import cached, download_endpoint, get_endpoint
-
-
-STABLE_TAG_PATTERN = re.compile(r'^v[\d\.]+$')
-
-
-def get_latest_stable_macdown_tag():
-    tag_data_list = get_endpoint('/repos/MacDownApp/macdown/tags')
-    tag = None
-    for tag_data in tag_data_list:
-        tag_name = tag_data['name']
-        if STABLE_TAG_PATTERN.match(tag_name):
-            tag = tag_name
-            break
-    assert tag is not None
-    return tag
-
-
-@cached('prism-components.json')
-def get_prism_language_data():
-    """Use the GitHub API to get Prism languages.
-    """
-    # Get Git URL of Prism submodule at the tag.
-    data = get_endpoint(
-        '/repos/MacDownApp/macdown/contents/Dependency/prism',
-        params={'ref': get_latest_stable_macdown_tag()},
-    )
-    components_str = download_endpoint(
-        endpoint='/repos/PrismJS/prism/contents/components.js',
-        ref=data['sha'],
-    )
-    # Make this string JSON-compatible.
-    components_str = components_str[
-        components_str.find('{'):components_str.rfind('}') + 1
-    ]
-    components_str_lines = [
-        line for line in components_str.splitlines(True)
-        if not line.strip().startswith('//')
-    ]
-    return ''.join(components_str_lines)
-
-
-@cached('macdown-aliases.json')
-def get_language_aliase_data():
-    """Get MacDown-maintained language aliases.
-    """
-    info_str = download_endpoint(
-        endpoint=(
-            '/repos/MacDownApp/macdown/contents/MacDown/Resources/'
-            'syntax_highlighting.json'
-        ),
-        ref=get_latest_stable_macdown_tag(),
-    )
-    return info_str
+from .utils import get_language_alias_data, get_prism_language_data
 
 
 def get_language_notes():
@@ -82,7 +28,7 @@ def get_language_infos():
         if not lang.endswith('-extras')
     }
 
-    aliases = json.loads(get_language_aliase_data())['aliases']
+    aliases = json.loads(get_language_alias_data())['aliases']
     infos.update({
         k: 'Alias to <code>{lang}</code>.'.format(lang=aliases[k])
         for k in aliases
