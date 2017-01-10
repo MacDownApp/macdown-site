@@ -101,7 +101,7 @@ def get_katex_script():
     return katex_script
 
 
-class JavaScriptError(Exception):
+class JavaScriptError(RuntimeError):
     pass
 
 
