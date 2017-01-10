@@ -21,7 +21,7 @@ function mathInline(state, silent) {
 
 	for (pos; pos + ender.length <= max; pos++) {
 		if (state.src.slice(pos, pos + ender.length) === ender) {
-			state.push({
+			state.tokens.push({
 				type: 'math_inline',
 				content: state.src.slice(start + starter.length, pos),
 				level: state.level
