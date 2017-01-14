@@ -252,18 +252,17 @@ The following is a list of optional inline markups supported:
 
 Option name         | Markup           | Result if enabled     |
 --------------------|------------------|-----------------------|
-Intra-word emphasis | So A\*maz\*ing   | So A<em>maz</em>ing   |
-Strikethrough       | \~~Much wow\~~   | <del>Much wow</del>   |
-Underline [^under]  | \_So doge\_      | <u>So doge</u>        |
-Quote [^quote]      | \"Such editor\"  | <q>Such editor</q>    |
-Highlight           | \==So good\==    | <mark>So good</mark>  |
-Superscript         | hoge\^(fuga)     | hoge<sup>fuga</sup>   |
+Intra-word emphasis | So A\*maz\*ing   | So A*maz*ing          |
+Strikethrough       | \~~Much wow\~~   | ~~Much wow~~          |
+Underline [^under]  | \_So doge\_      | _So doge_             |
+Quote [^quote]      | \"Such editor\"  | "Such editor"         |
+Highlight           | \==So good\==    | ==So good==           |
+Superscript         | hoge\^(fuga)     | hoge^(fuga)           |
 Autolink            | http://t.co      | <http://t.co>         |
 Footnotes           | [\^4] and [\^4]: | [^4] and footnote 4   |
 
+
 [^4]: You don't have to use a number. Arbitrary things like `[^footy note4]` and `[^footy note4]:` will also work. But they will *render* as numbered footnotes. Also, no need to keep your footnotes in order, I will sort out the order for you so they appear in the same order they were referenced in the text body. You can even keep some footnotes near where you referenced them, and collect others at the bottom of the file in the traditional place for footnotes.
-
-
 
 
 ## <a name="rendering-pane"></a>The Rendering Preference Pane

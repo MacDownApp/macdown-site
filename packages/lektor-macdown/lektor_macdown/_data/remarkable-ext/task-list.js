@@ -24,6 +24,9 @@ function taskMarker(state, silent) {
 	if (silent) {
 		return false;
 	}
+	if (state.level >= state.options.maxNesting) {
+		return false;
+	}
 
 	state.tokens.push({
 		type: 'task_marker',

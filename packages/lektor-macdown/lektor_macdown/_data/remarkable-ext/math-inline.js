@@ -18,6 +18,9 @@ function mathInline(state, silent) {
 	if (silent) {
 		return false;
 	}
+	if (state.level >= state.options.maxNesting) {
+		return false;
+	}
 
 	for (pos; pos + ender.length <= max; pos++) {
 		if (state.src.slice(pos, pos + ender.length) === ender) {

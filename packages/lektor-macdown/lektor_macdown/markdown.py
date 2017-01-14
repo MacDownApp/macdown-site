@@ -12,7 +12,7 @@ from markupsafe import Markup
 
 from .utils import (
     cached, download_endpoint, download_file, download_prism_script_files,
-    get_prism_ref, get_prism_language_data, get_language_alias_data,
+    get_prism_language_data, get_language_alias_data,
 )
 
 

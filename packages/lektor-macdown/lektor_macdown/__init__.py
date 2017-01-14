@@ -1,5 +1,5 @@
-import jinja2
 import lektor.pluginsystem
+import markupsafe
 
 from .markdown import MarkdownType
 from .syntaxtable import get_language_infos
@@ -15,7 +15,7 @@ class MacDownPlugin(lektor.pluginsystem.Plugin):
 
         def render_syntax_table():
             t = self.env.jinja_env.get_template('macdown/syntaxtable.html')
-            return jinja2.Markup(t.render(language_infos=language_infos))
+            return markupsafe.Markup(t.render(language_infos=language_infos))
 
         self.env.types['remarkable_markdown'] = MarkdownType
         self.env.jinja_env.globals.update({

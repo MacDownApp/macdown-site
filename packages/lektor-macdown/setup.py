@@ -1,10 +1,12 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 setup(
     name='lektor-macdown',
     version='0.1',
-    py_modules=['lektor_macdown'],
-    installs_requires=['pyobjc-framework-webkit', 'six'],
+    packages=find_packages(),
+    installs_requires=[
+        'lektor', 'markupsafe', 'pyobjc-framework-webkit', 'six',
+    ],
     entry_points={
         'lektor.plugins': [
             'macdown = lektor_macdown:MacDownPlugin',
