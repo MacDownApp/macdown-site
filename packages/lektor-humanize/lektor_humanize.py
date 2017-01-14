@@ -17,16 +17,11 @@ def volumize(value):
     return '{value:3.1f} {unit}'.format(value=value, unit='TB')
 
 
-def nomalize_float(value):
-    return str(value).rstrip('0').rstrip('.')
-
-
 class HumanizePlugin(Plugin):
 
     name = 'Humanize'
 
     def on_setup_env(self, **extra):
         self.env.jinja_env.filters.update({
-            'nomalize_float': nomalize_float,
             'volumize': volumize,
         })
