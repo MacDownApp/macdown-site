@@ -27,7 +27,7 @@ def get_static_redirect():
 
 def generate_download_redirects(pad):
     for page in pad.query('/download'):
-        from_url = '/download/{}/'.format(page['version'])
+        from_url = '/download/v{}/'.format(page['version'])
         try:
             redirect_url = page['download_url']
         except KeyError:
@@ -50,7 +50,7 @@ def get_latest_download_redirect(pad):
         redirect_url = latest['download_url']
     except KeyError:
         return None
-    return '{}{}302'.format(padright(from_url, 24), padright(redirect_url, 4))
+    return '{}{}302'.format(padright(from_url, 24), padright(redirect_url, 8))
 
 
 @invoke.task
