@@ -27,12 +27,10 @@ def get_static_redirect():
 
 def generate_download_redirects(pad):
     for page in pad.query('/download'):
-        from_url = '/download/v{}/'.format(page['version'])
-        try:
-            redirect_url = page['download_url']
-        except KeyError:
-            continue
-        yield '{}{}'.format(padright(from_url, 24), redirect_url)
+        yield '{}{}'.format(
+            padright('/download/v{}/'.format(page['version']), 24),
+            page['download_url'],
+        )
 
 
 def get_latest_download_redirect(pad):
@@ -45,12 +43,23 @@ def get_latest_download_redirect(pad):
     )
     if not latest:
         return None
-    from_url = '/download/latest/'
-    try:
-        redirect_url = latest['download_url']
-    except KeyError:
-        return None
-    return '{}{}302'.format(padright(from_url, 24), padright(redirect_url, 8))
+    return '{}{}302'.format(
+        padright('/download/latest/', 24),
+        padright(latest['download_url'], 8),
+    )
+
+
+def generate_blog_post_redirects(pad):
+    for post in pad.query('/blog'):
+        redirect_url = post.url_path
+        yield '{}{}'.format(
+            padright('/blog/post/{}'.format(post['id']), 24),
+            redirect_url,
+        )
+        yield '{}{}'.format(
+            padright('/blog/post/{}/*'.format(post['id']), 24),
+            redirect_url,
+        )
 
 
 @invoke.task
@@ -74,12 +83,20 @@ def build(ctx):
         f.write(static_redirect)
         if not static_redirect.endswith('\n'):
             f.write('\n')
+
         f.write('\n')
+        f.write('# Blog posts.')
+        f.write('\n'.join(generate_blog_post_redirects(pad)))
+        f.write('\n')
+
+        f.write('\n')
+        f.write('# Download redirects.')
         f.write('\n'.join(generate_download_redirects(pad)))
         f.write('\n')
 
         latest_redirect = get_latest_download_redirect(pad)
         if latest_redirect is not None:
             f.write('\n')
+            f.write('# Latests version download linkt.')
             f.write(latest_redirect)
             f.write('\n')
