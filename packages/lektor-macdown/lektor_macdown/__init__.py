@@ -1,3 +1,5 @@
+import datetime
+
 import lektor.pluginsystem
 import markupsafe
 
@@ -19,5 +21,6 @@ class MacDownPlugin(lektor.pluginsystem.Plugin):
 
         self.env.types['remarkable_markdown'] = MarkdownType
         self.env.jinja_env.globals.update({
+            'current_year': datetime.date.today().year,
             'render_syntax_table': render_syntax_table,
         })
