@@ -1,0 +1,4 @@
+/blog/feed/atom1/       /blog/feed/atom.xml
+/blog/feed/rss201rev2/  /blog/feed/atom.xml
+
+/sparkle/macdown/appcast.xml    /sparkle/macdown/stable/appcast.xml
