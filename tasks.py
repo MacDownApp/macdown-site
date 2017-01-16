@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 import datetime
 import io
+import json
 import os
 
 import invoke
@@ -109,8 +110,7 @@ def build(ctx):
             f.write('\n')
 
 
-blog_post_template = """
-id: {id}
+blog_post_template = """id: {id}
 ---
 title:
 ---
@@ -119,7 +119,7 @@ author: Tzu-ping Chung
 pub_date: {today}
 ---
 content:
-"""[1:]
+"""
 
 
 @invoke.task
@@ -149,3 +149,61 @@ def post(ctx, slug=None):
             id=next_id,
             today=datetime.date.today().strftime(r'%Y-%m-%d'),
         ))
+
+
+release_template = """_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: {build_number}
+---
+version: {version}
+---
+dsa_signature: {dsa_signature}
+---
+length: {length}
+---
+min_sysver: {min_sysver}
+---
+download_url: {download_url}
+---
+pub_datetime: {pub_datetime}
+---
+note:
+
+"""
+
+
+@invoke.task
+def release(ctx, path_to_info):
+    project = Project.discover()
+    env = project.make_env()
+    pad = env.new_pad()
+
+    later = datetime.datetime.now() + datetime.timedelta(hour=1)
+
+    with io.open(path_to_info, encoding='utf8') as f:
+        info = json.load(f)
+    info.setdefault('min_sysver', '10.8')
+    info.setdefault('pub_datetime', later.strftime(r'%Y-%m-%d %H:%M:%S'))
+    info.setdefault(
+        'download_url',
+        'https://github.com/MacDownApp/macdown/releases/download/'
+        'v{version}/MacDown.app.zip'.format(version=info['version']),
+    )
+
+    download = pad.get('/download')
+
+    new_dirname = os.path.join(
+        ROOT_DIR,
+        os.path.dirname(download.source_filename),
+        info['build_number'],
+    )
+    os.mkdir(new_dirname)
+
+    contents_fn = os.path.join(new_dirname, 'contents.lr')
+    with io.open(contents_fn, mode='w', encoding='utf8') as f:
+        f.write(release_template.format(**info))
