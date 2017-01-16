@@ -68,7 +68,7 @@ def build(ctx):
         builder.build_all()
 
     # Generate redirect file.
-    redirect_filename = os.path.join(ROOT_DIR, output_to, '_redirect')
+    redirect_filename = os.path.join(ROOT_DIR, output_to, '_redirects')
     with io.open(redirect_filename, mode='w', encoding='utf8') as f:
         static_redirect = get_static_redirect()
         f.write(static_redirect)
