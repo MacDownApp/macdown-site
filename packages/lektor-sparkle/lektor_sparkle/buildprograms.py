@@ -42,7 +42,7 @@ class AppCastSource(VirtualSourceObject):
 
 
 class AppCastBuildProgram(BuildProgram):
-    """Program to Build the appcast.
+    """Program to build the appcast.
     """
     def produce_artifacts(self):
         self.declare_artifact(
