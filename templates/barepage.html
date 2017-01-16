@@ -28,7 +28,7 @@
 
 <body>
 
-{% set latest_release = site.query('/releases/download').order_by('-build_number').first() %}
+{% set latest_release = site.query('/download').order_by('-build_number').first() %}
 
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
