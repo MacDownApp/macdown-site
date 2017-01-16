@@ -19,10 +19,11 @@ Deployment:
 * Make sure update-pushing works.
 * Enable HTTPS on Netlify.
 * Switch feed URL in MacDown to use HTTPS.
+* Add a license file to the repo.
 
 Feature:
 
-* Script to generate new release file from a MacDown build.
+* Re-write release script in the main repo to integrate with the JSON publish API.
 
 Markdown renderer:
 
