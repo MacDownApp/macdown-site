@@ -14,7 +14,7 @@ class BuildNumberType(lektor.types.FloatType):
 
     def value_from_raw(self, raw):
         value = str(super(BuildNumberType, self).value_from_raw(raw))
-        self.trailing_fraction_pattern.sub(r'\1', value)
+        value = self.trailing_fraction_pattern.sub(r'\1', value)
         return value.rstrip('.')
 
 
