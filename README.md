@@ -13,6 +13,19 @@ These are [Lektor] source files used to generate <macdown.uranusjr.com>. The gen
 
 ## TODO
 
+Deployment:
+
+* Route <macdown.uranusjr.com> to the current site.
+* Make sure update-pushing works.
+* Enable HTTPS on Netlify.
+* Switch feed URL in MacDown to use HTTPS.
+
+Feature:
+
+* Script to generate new release file from a MacDown build.
+
+Markdown renderer:
+
 * Inline math is hoisted to the brginning of a text group.
 * Escape in math blocks.
 * Quote syntax.
