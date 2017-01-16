@@ -1,0 +1,41 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 427
+---
+version: 0.2.5
+---
+dsa_signature: MC0CFHjdpxopdiivSJRhGBC5JPiuDva3AhUAu7lU6/WzZmwzlvpg5tGZaW4MtUA=
+---
+length: 5052703
+---
+note:
+
+This is a bugfix version. Recommended for all users.
+
+* Fixed: Deeply nested constructs are not rendered correctly.
+* Fixed: Preview pane accepts drag-n-drop into it.
+* Fixed: Editor auto-completion conflicts with built-in quote substitution.
+* Fixed: Word counter does not update if preview is hidden.
+* Fixed: High CPU usage under certain circumstances.
+* Fixed: Inline styles and scripts are malformed in exported HTML.
+* Fixed: Hugh margin when printing and exporting to PDF.
+* Enhancement: Performance boost when resizing by eliminate unnecessary rendering.
+* Enhancement: “Toggle editor pane.”
+* Enhancement: Remapped keyboard shortcuts that do not conflict with system shortcuts.
+* Enhancement: Prism update.
+    * Better support to SQL.
+    * New syntaxes: Git and Apache conf.
+    * General bug-fixes and enhancements.
+* Enhancement: Claim `.md` extension with UTI export.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.2.5/MacDown.app.zip
+---
+pub_datetime: 2014-09-16 14:43:00

@@ -1,0 +1,27 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 697
+---
+version: 0.5.3
+---
+dsa_signature: MC0CFQCTn0AqAf9zDHkAw3iT55xMqUxX8gIUMmWpp0oxa0rHWZ17LDQR3SNUuSk=
+---
+length: 7727357
+---
+note:
+
+* Fixed: Could not load HTTPS images.
+* Enhancement: Allow YAML front-matter to end with `...`.
+* Upgraded Prism to 05a2a15.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.5.3/MacDown.app.zip
+---
+pub_datetime: 2015-11-07 16:34:28

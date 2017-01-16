@@ -1,0 +1,22 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 217
+---
+version: 0.1.3d17
+---
+dsa_signature: MC0CFCaYukmgMCeEpZeRrgqs0I/9iNqkAhUAssYCMctHFwGTkcCWbtBQU9E7NiA=
+---
+length: 4745493
+---
+note:
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/3qn7+
+---
+pub_datetime: 2014-07-01 19:54:18

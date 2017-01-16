@@ -1,0 +1,36 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 578
+---
+version: 0.4.2
+---
+dsa_signature: MCwCFFU6Gt3Fax0Ig+++E+ca7n+IiXDiAhQzhD/1RT22pDmVm61dWJjYOEwm3g==
+---
+length: 7213582
+---
+note:
+
+* Fixed: Anchor links with the current document as target do not work in preview pane.
+* Fixed: Incorrect containing directory when saving an auto-created unsaved documents with `fileURL` set.
+* Fixed: Editor width limits are not applied correctly on launch.
+* Fixed: JavaScript exception in exported HTML files.
+* Fixed: Re-rendering not triggered when certain options change.
+* Enhancement: Contents in code blocks are now excluded from word counts (but not character counts). A inline code span now counts as one single word.
+* Enhancement: Optionally show line numbers in highlighted code blocks.
+* Enhancement: Automatically create non-exited document instead of showing an error when clicking on links.
+* Enhancement: Appearance of the divider between editor and preview pane is now more subtle, and hides itself when either editor or preview is hidden.
+* Enhancement: Better word counter behaviour on launch.
+* Enhancement: More new languages in code blocks with Prism update. New language alias: `jl` for `julia`.
+* Performance improvements.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.4.2/MacDown.app.zip
+---
+pub_datetime: 2015-01-25 02:02:31

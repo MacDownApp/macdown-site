@@ -1,0 +1,42 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 646
+---
+version: 0.4.5
+---
+dsa_signature: MC0CFQCT3ckX/qrKvSpLIRyGjQMyeBYd5AIUcqjGfQS4WLw5o/l8e1iSJf0MaXM=
+---
+length: 7545962
+---
+note:
+
+* Add toggle to zoom preview content based on editor font size.
+* Disable horizontal scrolling in editor to prevent word wrapping from failing.
+* Upgrade Hoedown to 3.0.3, fixing incorrect parsing in tables and comments.
+* Upgrade Sparkle to 1.10. May fix multiple issues with the updater window. Feedback needed.
+* Upgrade Prism to f28a3e0.
+    * The following new syntaxes are included:
+        - Brainfuck
+        - Keyman
+        - Makefile
+        - REST
+        - SASS
+        - Smalltalk
+        - Stylus
+        - VHDL
+        - Wiki
+        - YAML
+    * Syntax alias "sass" has been removed in favour of the SASS syntax.
+* Other dependency upgrades.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.4.5/MacDown.app.zip
+---
+pub_datetime: 2015-06-28 22:50:47

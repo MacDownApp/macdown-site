@@ -1,0 +1,40 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 372
+---
+version: 0.2.3
+---
+dsa_signature: MCwCFAQM3DY6Cc2GmY4JYVUJ55M0gLWsAhR5ZDNWxzffNpaup4XtRoFlnOerSQ==
+---
+length: 5039659
+---
+note:
+
+This is a bugfix version. Recommended for all users.
+
+* Fixed: Copy-pasting to non-Safari browsers loses format.
+* Fixed: Math syntax causes preview to jump on re-rendering.
+* Fixed: TOC links do not work.
+* Fixed: List item completion is broken.
+* Fixed: Cmd-Left jumps to logical instead of graphical line start.
+* Fixed: Printing does not work if document is longer than two pages.
+* Fixed: Editor does not load large document on app startup.
+* Enhancement: “Export as PDF” function.
+* Enhancement: Suggest file name based on front-matter is possible.
+* Enhancement: Reload preview and editor when theme/CSS is reloaded.
+* Enhancement: “Limit editor width” option switch.
+* Enhancement: Solarized editor themes and preview styles.
+* Enhancement: Update Sparkle to 1.7.
+* Enhancement: Update Prism to 2014-08-17.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.2.3/MacDown.app.zip
+---
+pub_datetime: 2014-08-19 13:00:00

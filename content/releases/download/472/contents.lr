@@ -1,0 +1,33 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 472
+---
+version: 0.2.5.2d41
+---
+dsa_signature: MC4CFQCYIsx8ledi/OBX15ivvri8jGuQLQIVAKtQZ1Pyrxc1Vdr3fgaii9+xsAxp
+---
+length: 6641585
+---
+note:
+
+* Fixed: Broken TOC support.
+* Fixed: Aut-completion causes later delete operations to act erroneously.
+* Fixed: Programmatic text replacemenet (including insertion and deletion) breaks undo chain.
+* Fixed: Word counts are not calculated correctly when first becoming visible.
+* Fixed: Crashes caused by unbalanced flushing in preview pane.
+* Fixed: Cyclic referencing in blocks causing memory leaks.
+* Enhancement: New documents are now shown maximised on creation.
+* Enhancement: Scroll past end support.
+* Enhancement: Auto-numbering in ordered list can now be disabled.
+* Enhancement: Optional “ensure newline at end on save” support.
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/10Dmz+
+---
+pub_datetime: 2014-10-28 13:53:09

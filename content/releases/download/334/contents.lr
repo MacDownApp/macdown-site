@@ -1,0 +1,38 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 334
+---
+version: 0.2.2
+---
+dsa_signature: MC0CFAvntViBPMjuKpk/WJcOV+bvXC1DAhUAjdLA179SsQjbv4ZOx5nKtWkaLpQ=
+---
+length: 4878376
+---
+note:
+
+This is a bugfix version. Recommended for all users.
+
+* Fixed: Endless recursion on editor bound changes, causing editor flickering and/or application crash.
+* Fixed: Auto link detection misjudges certain patterns as links and cannot be turned off.
+* Fixed: Contents in `<script>` and `<style>` HTML tags are treated as text by the word counter.
+* Fixed: ⌘← jumps to *logical* line start instead of *visual* left end of line.
+* Fixed: List item auto-completion misjudges tab indents.
+* Enhancement: Experimental table of content support.
+* Enhancement: Revised “Hide Preview Panel” behaviour.
+* Enhancement: Editor-preview ratio can now be restored after preview is hidden.
+* Enhancement: Files can now be saved in arbitrary extensions.
+* Enhancement: Pressing tab when selecting text now acts the same as ⌘].
+* Enhancement: Replace `:` and `/` with `-` when auto-detecting file names.
+* Various bug fixes and minor enhancement.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.2.2/MacDown.app.zip
+---
+pub_datetime: 2014-08-05 17:32:12

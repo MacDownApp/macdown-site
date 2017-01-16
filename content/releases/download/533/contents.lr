@@ -1,0 +1,39 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 533
+---
+version: 0.4
+---
+dsa_signature: MC0CFFvu58d00Cu/1g6YWQFBV/9FQJ2jAhUAj3QSVGu2K5ptGcMpLZRy6BCw5mM=
+---
+length: 7061624
+---
+note:
+
+This is a feature update that adds additional functionalities and fixes problems in previous versions. Recommended for all users.
+
+See [blog post](http://macdown.uranusjr.com/blog/post/6/macdown-04/) for detailed descriptions about new features.
+
+* Upgrade to Hoedown 3.
+* Enhancements and bugfixes with PAPreferences 0.4 upgrade.
+* New syntax highlighting languages from Prism upgrade.
+* Command line utility inside SharedSupport directory.
+* Fixed: Segmentation fault when saving a blank document with "add newline at EOF" turned on.
+* Fixed: Cursor moves when inserting trailing newline.
+* Fixed: Conflicts between input methods and auto-completion.
+* Fixed: New document windows always open maximised.
+* Fixed: Exported PDF cuts out contents.
+* Enhancement: Allow completion even if a matching character follows.
+* Enhancement: Option to disable auto blank document creation when launching without open documents.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.4/MacDown.app.zip
+---
+pub_datetime: 2014-12-14 02:06:51

@@ -1,0 +1,29 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 173
+---
+version: 0.1.1
+---
+dsa_signature: MC0CFQCUDRzOY3+dodlMckPkBU3fLVkJ2wIUObs+S6OaWC/7qdiIg/ox3rbjn2M=
+---
+length: 5462745
+---
+note:
+
+This is a bugfix release to version 0.1. Recommended for all users.
+
+* Fixed: UTI importing so that files with .md extension can be opened correctly.
+* Fixed: various typos.
+* Enhancement: Add option to disable auto-render.
+
+---
+min_sysver: 10.9
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.1.1/MacDown.app.zip
+---
+pub_datetime: 2014-06-26 22:00:00

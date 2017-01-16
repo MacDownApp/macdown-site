@@ -1,0 +1,27 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 620
+---
+version: 0.4.4
+---
+dsa_signature: MCwCFBh3gOm6PTFgPSJtpLnVYLA0uNjOAhRaChKi7g9R2iXUXAOB7G4NJhc/JA==
+---
+length: 7268793
+---
+note:
+
+* Better bundled documentation. Thanks to @ohthetrees!
+* Bug: Editor size limiting breaks if window resizes.
+* Enhancement: Preview position is now kept when re-rendering.
+
+---
+min_sysver: 10.9
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.4.4/MacDown.app.zip
+---
+pub_datetime: 2015-03-14 13:56:10

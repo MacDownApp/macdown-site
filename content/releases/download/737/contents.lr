@@ -2,51 +2,28 @@ _model: release
 ---
 channels:
 
-stable
 testing
 ---
-build_number: 749
+build_number: 737
 ---
-version: 0.6
+version: 0.5.5.2d20
 ---
-dsa_signature: MC0CFQCAOZigewiQnEb4q9jNIIOIixJU8AIUBg4sBQkiDigXBdOKPCrIMzfYMaw=
+dsa_signature: MC0CFQCX3/L5QCVvtOe195+eAf+PG9kgBgIUai9ESTMdeS4tubUru0PN7BTF/8k=
 ---
-length: 8123167
+length: 8087313
 ---
 note:
 
-This update adds new functionalities to MacDown, and provides fixes to
-bugs and usability issues, etc. Recommended for all users.
-
-### Major features
-
-* Experimental plug-in architecture. MacDown can now accept plug-in
- bundles to add functionalities at runtime.
-* Scripting support. You can now use AppleScript and JavaScript (JXA)
- to automate interaction with MacDown programmatically.
-
-### Resolved bugs
-
-* Fixed a crash in the command line utility if filenames contain
- special characters.
-* Fixed strange behaviours when toggling block syntaxes in a document
- caused by unintended integer overflow and underflow.
-
-### Minor features and enhancements
-
-* MacDown now updates the document content when file is edited with
- an external application. This prevents you from accidentally saving
- an older version of the document.
-* Convert lines to ordered list.
-* The save dialog now always appends .md automatically when saving an
- untitled file. You can still change the extension if you want.
-* The editor is now read-only when you hide it. Hotkeys still work
- (this is considered a bug that should be fixed in the future).
-* The HTML document is now rendered through Handlebars.
+* Add scripting API for AppleScript and JavaScript for basic OS X automation support.
+* Add **Format → Ordered List**.
+* Fixed: Update document on save to prevent overwriting external modifications.
+* Fixed: Check for over and underflows to avoid unexpected behaviours when applying block syntaxes.
+* Fixed: Percent-escape command arguments to fix crashes when paths contain URL-reserved characters.
+* Enhancement: Include `.md` extension when saving untitled files.
 
 ---
 min_sysver: 10.8
 ---
-download_url: https://github.com/MacDownApp/macdown/releases/download/v0.6/MacDown.app.zip
+download_url: http://d.pr/f/6Tma+
 ---
-pub_datetime: 2016-03-10 00:00:00
+pub_datetime: 2016-03-03 19:12:24

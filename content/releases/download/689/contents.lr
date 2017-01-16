@@ -1,0 +1,27 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 689
+---
+version: 0.5.2
+---
+dsa_signature: MCwCFH/W6uR6Wy0ia8Vy0eHgdq6BKTmJAhQ7FD1VdPpRe7jZSYnQymLkmuoBvg==
+---
+length: 7637360
+---
+note:
+
+* Fixed: Preview not rendering under OS X 10.11 (El Capitan).
+* Enhancement: Better editor font size calculation.
+* Upgraded Prism to `1ab4619`.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.5.2/MacDown.app.zip
+---
+pub_datetime: 2015-10-03 18:33:47

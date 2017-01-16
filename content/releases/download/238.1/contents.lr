@@ -1,0 +1,22 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 238.1
+---
+version: 0.1.3d39
+---
+dsa_signature: MCwCFGaZVcV8VLnD9J65jOjVKmNgh4riAhQD0J9HXIkPYqdGiTBI2C5q6iEINg==
+---
+length: 4749356
+---
+note:
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/FVJL+
+---
+pub_datetime: 2014-07-04 18:43:44

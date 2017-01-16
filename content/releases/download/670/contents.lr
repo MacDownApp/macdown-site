@@ -1,0 +1,34 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 670
+---
+version: 0.5
+---
+dsa_signature: MCwCFDRYiykBMb7IC8SQwnsXA3FXYh6wAhRqgDAV/rhO6nn/v5qx+ccKajXWMA==
+---
+length: 7336252
+---
+note:
+
+* Fixed: Line numbers in code blocks not showing without a language tag.
+* Fixed: Out-of-bounds read when toggling markup in an empty line.
+* Fixed: Delete selection behaviour is shadowed by unindentation.
+* Enhancement: Make table-of-content rendering preference global.
+* Enhancement: Implement accessory view for code blocks.
+* Enhancement: More consistent behaviour when toggling block-level markup.
+* Update Prism to ee463e8:
+    * Make line numbers plugin work without highlighting.
+    * Misc. rendering glitches fixed.
+    * Syntax improvements.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.5/MacDown.app.zip
+---
+pub_datetime: 2015-08-16 13:43:46

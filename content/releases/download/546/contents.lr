@@ -1,0 +1,26 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 546
+---
+version: 0.4.2d11
+---
+dsa_signature: MC0CFQCKXbCcCyky4gX7K77Xj6izFOIJFQIUN1GXIOJdeArbs4/qrbxpkw7eItU=
+---
+length: 7080298
+---
+note:
+
+* Fixed: Math syntax preference change does not trigger re-parsing.
+* Enhancement: The divider between editor and preview is now drawn according to the editor or preview’s background.
+* Enhancement: Minor re-phrasing of some preference options.
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/u2nR+
+---
+pub_datetime: 2014-12-29 01:17:38

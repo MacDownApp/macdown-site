@@ -1,0 +1,25 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 157
+---
+version: 0.1
+---
+dsa_signature: MC0CFCzN5++PgCJf9GLNKXov8O4kxnxIAhUAnWD1lUTkIQ4WT6ndlJb3YYvEgE8=
+---
+length: 5460672
+---
+note:
+
+First publicly released version. Visit the [project site](http://macdown.uranusjr.com/) for more information.
+
+---
+min_sysver: 10.9
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.1/MacDown.app.zip
+---
+pub_datetime: 2014-06-22 16:37:17

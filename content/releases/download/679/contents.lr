@@ -1,0 +1,27 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 679
+---
+version: 0.5.1
+---
+dsa_signature: MC0CFDurx1GoMi3TC9ZvnzI1XWr3vndKAhUAmeXms8Ssfc0gZWGUxRmi7uG232M=
+---
+length: 5694143
+---
+note:
+
+* Enhancement: Math block highlighting in editor.
+* Fixed 10.11 El Capitan compatibility.
+* Updated syntax highlighting (Prism @ 513137c).
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.5.1/MacDown.app.zip
+---
+pub_datetime: 2015-09-28 20:16:44

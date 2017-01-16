@@ -1,0 +1,25 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 647
+---
+version: 0.4.5.1
+---
+dsa_signature: MC4CFQCnPS11JFiwqf3IxHxz47hjv7cM0gIVAKrTlIrsOkc+oGkyNWeWd/xWYACz
+---
+length: 7325496
+---
+note:
+
+Freeze Sparkle under 1.8 for compatibility.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.4.5.1/MacDown.app.zip
+---
+pub_datetime: 2015-06-28 23:28:00

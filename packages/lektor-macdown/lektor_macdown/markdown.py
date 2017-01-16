@@ -1,15 +1,16 @@
 from __future__ import unicode_literals
 
+import io
 import json
 import os
 import sys
 
 import six
-import WebKit
 
 from lektor.types import Type
 from markupsafe import Markup
 
+from .js import JavaScriptRunner
 from .utils import (
     cached, download_endpoint, download_file, download_prism_script_files,
     get_prism_language_data, get_language_alias_data,
@@ -70,7 +71,7 @@ def get_prism_script():
     container_dir = os.path.join(download_prism_script_files(), 'components')
 
     def read(name):
-        with open(os.path.join(container_dir, name)) as f:
+        with io.open(os.path.join(container_dir, name), encoding='utf8') as f:
             return f.read()
 
     content_map = {
@@ -99,30 +100,6 @@ def get_katex_script():
         encoding='utf-8',
     )
     return katex_script
-
-
-class JavaScriptError(RuntimeError):
-    pass
-
-
-class JavaScriptRunner(object):
-
-    def __init__(self):
-        self.ctx = WebKit.JSContext.alloc().init()
-
-    def __setitem__(self, key, value):
-        self.ctx.setObject_forKeyedSubscript_(value, key)
-
-    def evaluate(self, script):
-        try:
-            script = script.read()
-        except AttributeError:
-            pass
-        result = self.ctx.evaluateScript_(script)
-        exception = self.ctx.exception()
-        if exception:
-            raise JavaScriptError(exception)
-        return result
 
 
 class Renderer(object):

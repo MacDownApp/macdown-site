@@ -1,0 +1,27 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 301
+---
+version: 0.2.1
+---
+dsa_signature: MCwCFEM/jPuiLc992pPWwYY02RYqjUYLAhQDsarJYdm2SNITQ17bJArMuZO5Iw=
+---
+length: 4876141
+---
+note:
+
+This is a bugfix version. Recommended for all users.
+
+* Fixed: Obsolete images in help.md
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.2.1/MacDown.app.zip
+---
+pub_datetime: 2014-07-19 13:37:00

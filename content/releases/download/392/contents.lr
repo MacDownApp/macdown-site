@@ -1,0 +1,33 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 392
+---
+version: 0.2.4
+---
+dsa_signature: MC0CFFkgV7wkslbLGc0aDeB8q07MSqKPAhUAr1Lk0OeRI6NIL+2SrItMivNHwKY=
+---
+length: 6919524
+---
+note:
+
+This is a bugfix version. Recommended for all users.
+
+* Fixed: Window moving/resizing is very slow.
+* Fixed: Crash if the document window is moved/resized when preview is loading.
+* Fixed: Background glitch at the bottom of the editor is scrolled very quickly to the bottom.
+* Fixed: HTML copy when preview is hidden yields incorrect results.
+* Fixed: URLs in image constructs (`![]()`) are highlighted as links.
+* Fixed: Preview does not refresh with MathJax on if the Internet is slow or unavailable.
+* Enhancement: Reject files that cannot be decoded with UTF-8.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.2.4/MacDown.app.zip
+---
+pub_datetime: 2014-09-01 12:00:00

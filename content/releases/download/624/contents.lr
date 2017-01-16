@@ -1,0 +1,25 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 624
+---
+version: 0.4.4.1
+---
+dsa_signature: MCwCFE/p02pzESoXuMUl52lTyF0p1KmLAhRNXJwDvy6ytYAj0fXJweIybSAxww==
+---
+length: 7269536
+---
+note:
+
+Fix crashing on OS X 10.8 by disabling preview pane tracking.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.4.4.1/MacDown.app.zip
+---
+pub_datetime: 2015-03-16 11:15:27

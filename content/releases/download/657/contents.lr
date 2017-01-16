@@ -1,0 +1,31 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 657
+---
+version: 0.4.6
+---
+dsa_signature: MC0CFESeSPLZpyaKVGNIEfhSM94HEVy8AhUAkFtkxqGPyRnEflSffOy64Do5nBU=
+---
+length: 7327868
+---
+note:
+
+* Fixed: Preview becoming plain text when clicking on hyperlinks.
+* Fixed: Incorrect CLI utility behaviour when a MacDown instance is running.
+* Fixed: Crash on resource lookup failures.
+* Enhancement: Blockquote and indentation shortcuts now work for empty lines.
+* Enhancement: Add a class attribute to the TOC HTML list for styling.
+* Enhancement: Always add a `language-*` class to code blocks, even if syntax is
+  not specified (`language-none`), as recommended by Prism.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.4.6/MacDown.app.zip
+---
+pub_datetime: 2015-08-10 23:17:29

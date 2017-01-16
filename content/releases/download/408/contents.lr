@@ -1,0 +1,27 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 408
+---
+version: 0.2.5d16
+---
+dsa_signature: MCwCFEMBoKT+skANP2dbMrV8cV4biPIyAhQRuYKg5iz04xlpLFWsl9LdQRWJDg==
+---
+length: 6920491
+---
+note:
+
+* Fixed: Window moving/resizing is very slow.
+* Fixed: Poor performance on Retina displays.
+* Fixed: Poor performance when switch word counter and/or editor styles.
+* Fixed: CSS and JavaScript assets miss trailing braces when exporting.
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/7E5i+
+---
+pub_datetime: 2014-09-07 09:52:21

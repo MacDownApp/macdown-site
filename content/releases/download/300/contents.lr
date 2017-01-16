@@ -1,0 +1,45 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 300
+---
+version: 0.2
+---
+dsa_signature: MCwCFEB9fi4nM7CJTk8K5cgnTOlVQl2LAhQd6cY3+1gjHfdLaCjYBqmK9r+vog==
+---
+length: 4876072
+---
+note:
+
+This version fixes various bugs and adds functionalities. Recommended for all users.
+
+Thanks to Alexander Käßner for the new preference pane icons! See the [blog post](https://uranusjr.com/blog/post/59/macdown-0.2/) for information about selected new features.
+
+Other updates include:
+
+* You can now switch between stable and testing release channels in-app.
+* Fixed: Crash during closing a document and/or quitting the application.
+* Fixed: Printing produces blank documents.
+* Fixed: Stucked scrollbars when navigatiing over very large blocks.
+* Fixed: Unable to use as external editor of other applications.
+* Fixed: `<iframe>` tags are handled incorrectly.
+* Fixed: Auto link detection in editor destroys IME.
+* Enhancement: Optional support for LaTeX-style `$...$` inline math syntax.
+* Enhancement: Experimental support for GFW-style tasklist syntax.
+* Enhancement: Preview pane visibility, size, and position options.
+* Enhancement: More language aliases for code block syntax highlighting.
+* Enhancement: Autocomplete blockquotes.
+* Enhancement: Word counts.
+* Enhancement: Experimental support for Jekyll-style YAML front-matter.
+* Various bugfixes and improvements.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.2/MacDown.app.zip
+---
+pub_datetime: 2014-07-19 12:00:00

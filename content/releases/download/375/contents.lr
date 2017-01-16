@@ -1,0 +1,22 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 375
+---
+version: 0.2.4d3
+---
+dsa_signature: MCwCFBTZN01soIVDOKzHB4pigJ+PVnLMAhREWS+VFKBEGfkKU2KuOuUlNh8eFg==
+---
+length: 5039948
+---
+note:
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/plGV+
+---
+pub_datetime: 2014-08-21 11:14:34

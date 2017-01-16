@@ -1,0 +1,30 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 713
+---
+version: 0.5.4
+---
+dsa_signature: MCwCFEJ2yI+oGuFGxGX4Ywhkpmv4gXvFAhRpDpA1LQFBYfq+1t/9HmRUhX01Iw==
+---
+length: 7710746
+---
+note:
+
+* Fixed a bug causing text being incorrectly trimmed when toggling block syntaxes.
+* Fixed a bug causing crashes when entering Versions.
+* Fixed accessory display in highlighted code blocks.
+* Tried to fix automatic updates again.
+* Spelling fixes.
+* Updated Prism to `73b7135` with a lot of new languages.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.5.4/MacDown.app.zip
+---
+pub_datetime: 2016-01-27 00:03:49

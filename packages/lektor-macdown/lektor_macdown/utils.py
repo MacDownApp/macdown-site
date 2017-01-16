@@ -58,13 +58,15 @@ def cached(filename):
             with _cache_lock:
                 cache_fs = os.path.join(CACHE_DIR, filename)
                 if os.path.exists(cache_fs):
-                    with open(cache_fs) as f:
+                    with io.open(cache_fs, encoding='utf8') as f:
                         value = f.read()
                 else:
                     value = func(*args, **kwargs)
+                    if isinstance(value, bytes):
+                        value = value.decode('utf8')
                     if not os.path.exists(CACHE_DIR):
                         os.makedirs(CACHE_DIR)
-                    with open(cache_fs, 'w') as f:
+                    with io.open(cache_fs, mode='w', encoding='utf8') as f:
                         f.write(value)
             return value
 

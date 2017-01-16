@@ -1,0 +1,29 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 329
+---
+version: 0.2.2d28
+---
+dsa_signature: MCwCFDH28KumLConGKZHvWLrqybnDqSaAhRR8uzsdCDrotq7lQhzAYw/dDeatw==
+---
+length: 4878543
+---
+note:
+
+This is a development update. **Update at your own risks!!**
+
+* Fixed: Crash due to repeated bound change notifications.
+* Fixed: Phantom word count when MathJax is configured with `$...$` support.
+* Enhancement: Experimental TOC rendering support.
+* Enhancement: Disable underscore when MathJax is on to avoid syntax conflicts.
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/Ufd5+
+---
+pub_datetime: 2014-08-01 11:57:00

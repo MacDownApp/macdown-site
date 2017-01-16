@@ -1,0 +1,29 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 523
+---
+version: 0.4d38
+---
+dsa_signature: MC0CFAhNEqcC0Rilxw/7SNoR70RBQqCFAhUAqC+4/qazsiqOdB85jOCsQZ4e9hQ=
+---
+length: 7041963
+---
+note:
+
+* Command line utility at `MacDown.app/Contents/SharedSupport/bin/macdown`. Works like `subl` in Sublime Text:
+    * Open documents in MacDown with filenames passed to it. If a file with the name does not exist yet, a new document is created; you can then save it to the destination (MacDown sets the path for you based on the argument passed).
+
+* Fixed: Segmentation fault when saving a blank document with “add newline at EOF” turned on.
+
+* Enhancements and bugfixes with PAPreferences 0.4 upgrade.
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/dow+
+---
+pub_datetime: 2014-12-03 11:09:50

@@ -1,0 +1,29 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 591
+---
+version: 0.4.3d13
+---
+dsa_signature: MC0CFQCT9JYkd/fXT1pUquYFg7zEAAYIYwIUTekztc5bzvxgRBegfkBGDJJCdek=
+---
+length: 7214886
+---
+note:
+
+* Proposed fix for laggy scrolling on Retina screens.
+* Fixed: Preview content flickers constantly.
+* Fixed: Editor font and line spacing configs are not applied properly.
+* Fixed: Divider between panes is obscure if the background colours are too similar.
+* Enhancement: Unknown document’s window now adapts sizes of untitled documents.
+* Enhancement: It is not possible to disable auto line prefix insertion in Preferences.
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/1lxue+
+---
+pub_datetime: 2015-02-11 19:42:19

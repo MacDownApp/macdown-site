@@ -1,0 +1,25 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 642
+---
+version: 0.4.4.2d18
+---
+dsa_signature: MCwCFHQgemh2EzqozrNU6fYeTJsAp6ZmAhQLPqG1GQO083NV/kHJTr5VRxJXfw==
+---
+length: 7266452
+---
+note:
+
+* Add toggle to zoom preview content based on editor font size.
+* Disable horizontal scrolling in editor to prevent word wrapping from failing.
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/15X0l+
+---
+pub_datetime: 2015-05-02 18:53:01

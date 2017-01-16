@@ -1,0 +1,29 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 715
+---
+version: 0.5.5
+---
+dsa_signature: MCwCFHY8N/INHoQR9rSZlRcTjUicKzAXAhRto8/BkA/BdgIJ6N0nxl5ixbfcSA==
+---
+length: 8061440
+---
+note:
+
+## IMPORTANT SECURITY RELEASE; PLEASE UPGRADE NOW.
+
+This update addresses the security issue found in Sparkle, the automatic upgrade framework used by MacDown. Please upgrade as the earliest possible chance.
+
+You can read more about the security issue at <https://github.com/sparkle-project/Sparkle/releases/tag/1.13.1>.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.5.5/MacDown.app.zip
+---
+pub_datetime: 2016-01-30 00:01:22

@@ -1,0 +1,28 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 431
+---
+version: 0.2.5.1
+---
+dsa_signature: MC0CFQCbEAe9z+8kMozNoSf3ndoIhoKDQgIUXjJpwxzR6W1KzCNB5W5gwO3dRJQ=
+---
+length: 6621080
+---
+note:
+
+This is a bug-fixing version. Recommended for all users.
+
+* Fixed: Preview “jumps” when math is turned on.
+* Fixed: Text in `<title>` tag is included in word counts.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.2.5.1/MacDown.app.zip
+---
+pub_datetime: 2014-09-17 12:00:00

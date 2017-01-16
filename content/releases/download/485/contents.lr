@@ -1,0 +1,40 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 485
+---
+version: 0.3
+---
+dsa_signature: MC4CFQCtldueky6prI8U3rgnzLXqZjEeHAIVAJmNYjBd1IH58vObTT8+AniYIjnz
+---
+length: 6970837
+---
+note:
+
+This version fixes various bugs and adds functionalities. Recommended for all users.
+
+Thanks to Alexander Käßner for both the new document icons and improved Retina preference pane icons.
+
+* Fixed: Broken TOC support.
+* Fixed: Aut-completion causes later delete operations to act erroneously.
+* Fixed: Programmatic text replacemenet (including insertion and deletion) breaks undo chain.
+* Fixed: Word counts are not calculated correctly when first becoming visible.
+* Fixed: Unintuitive cmd-return behaviour.
+* Fixed: Crashes caused by unbalanced flushing in preview pane.
+* Fixed: Cyclic referencing in blocks causing memory leaks.
+* Enhancement: New documents are now shown maximised on creation.
+* Enhancement: Scroll past end support.
+* Enhancement: Auto-numbering in ordered list can now be disabled.
+* Enhancement: Optional "ensure newline at end on save" support.
+* Updated Prism with Scheme and better NSIS support.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.3/MacDown.app.zip
+---
+pub_datetime: 2014-11-09 17:54:34

@@ -1,0 +1,27 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 481
+---
+version: 0.2.5.2d50
+---
+dsa_signature: MC0CFFkhquZ7CLVLCtGYXR+CwKgDWJldAhUApV9FvohbHv/UxyNOtjYscan3AKo=
+---
+length: 6648491
+---
+note:
+
+* Fixed: Overly-narrow page margins and cut-off contents when exporting to PDF.
+* Fixed: Broken internal links in TOC.
+* Fixed: Unintuitive cmd-return behaviour.
+* Updated Prism with Scheme and better NSIS support.
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/c19R+
+---
+pub_datetime: 2014-11-03 18:12:36

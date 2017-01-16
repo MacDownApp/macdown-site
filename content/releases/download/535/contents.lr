@@ -1,0 +1,25 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 535
+---
+version: 0.4.1
+---
+dsa_signature: MC0CFDT1Hnd9l6gPFb9YDT4Zeeo2Gl7qAhUAsPWqtbsAh5YFkEMen5fqaOaDnkE=
+---
+length: 7061616
+---
+note:
+
+* Fixed: Scroller sync does not work in documents.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.4.1/MacDown.app.zip
+---
+pub_datetime: 2014-12-14 17:08:13

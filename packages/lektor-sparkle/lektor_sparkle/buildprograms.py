@@ -73,9 +73,15 @@ class AppCastBuildProgram(BuildProgram):
         for item in items:
             with ctx.changed_base_url(item.url_path):
                 description = six.text_type(markupsafe.escape(item['note']))
-            pub_date = item['pub_datetime'].replace(
-                tzinfo=pytz.timezone(source.timezone),
-            )
+
+            try:
+                offset = int(source.timezone)
+            except ValueError:
+                tzinfo = pytz.timezone(source.timezone)
+            else:
+                tzinfo = pytz.FixedOffset(offset)
+            pub_date = item['pub_datetime'].replace(tzinfo=tzinfo)
+
             try:
                 appcast.add(
                     title='Version {}'.format(item['version']),

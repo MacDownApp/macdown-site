@@ -1,0 +1,33 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 606
+---
+version: 0.4.3
+---
+dsa_signature: MCwCFDrq1fqB75mskP1rzbtm5VsDVB7QAhQK4VC/ZIExZiPBc8pIF8y0gplc+g==
+---
+length: 7223104
+---
+note:
+
+* Revised help file from [@ohthetrees].
+* Proposed fix for scrolling issues Retina Macs (revised from v0.4.3d13).
+* Fixed: Preview content flickers constantly.
+* Fixed: Editor font and line spacing configs are not applied properly.
+* Fixed: Divider between panes is obscure if the background colours are too similar.
+* Enhancement: Unknown document’s window now adapts sizes of untitled documents.
+* Enhancement: It is now possible to disable auto line prefix insertion in Preferences.
+
+[@ohthetrees]: https://github.com/ohthetrees
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.4.3/MacDown.app.zip
+---
+pub_datetime: 2015-02-13 16:13:13

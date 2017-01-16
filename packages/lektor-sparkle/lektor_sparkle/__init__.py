@@ -1,3 +1,4 @@
+import re
 import sys
 
 import lektor.pluginsystem
@@ -8,9 +9,13 @@ from .buildprograms import AppCastBuildProgram, AppCastSource
 
 
 class BuildNumberType(lektor.types.FloatType):
+
+    trailing_fraction_pattern = re.compile(r'(\.[1-9]*)0+$')
+
     def value_from_raw(self, raw):
         value = str(super(BuildNumberType, self).value_from_raw(raw))
-        return value.strip('0').strip('.')
+        self.trailing_fraction_pattern.sub(r'\1', value)
+        return value.rstrip('.')
 
 
 class SparklePlugin(lektor.pluginsystem.Plugin):

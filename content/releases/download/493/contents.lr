@@ -1,0 +1,30 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 493
+---
+version: 0.4d8
+---
+dsa_signature: MC0CFQCWkARtdq74x7VF3O32zQsBuygd3gIUS5AIIe+ATUKUoPX5QfBa8pZdxMo=
+---
+length: 6970724
+---
+note:
+
+* Upgrade to Hoedown 3.
+    * Fixes escaping in math equations.
+    * Fixes unescapable sequences including `==highlight==` and others.
+    * Many more.
+    * Backward-incompatibility: inline `$$` pairs will now be parsed as _inline_ math automatically based on context. You must put the `$$` pair in its own block if you need block math now.
+* Fixed: Conflicts between input methods and auto-completion.
+* Enhancement: Allow completion even if a matching character follows. Previously if you insert `(` between a `()` pair, the inner paranthesis is not auto-completed. Now it is.
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/1kHPB+
+---
+pub_datetime: 2014-11-11 21:48:09

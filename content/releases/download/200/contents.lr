@@ -1,0 +1,39 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 200
+---
+version: 0.1.2
+---
+dsa_signature: MCwCFETSUt0LbWGNcXIPHRWX/nJ9QTobAhQVJO9JYVEU1ko0GiyXv/EdUlsvHw==
+---
+length: 4725525
+---
+note:
+
+This version fixes various bugs and adds functionalities. Recommended for all users.
+
+We have new icons! Thanks to Matt Zanchelli for the beautiful Yosemite-style app icon and providing Retina resolutions to all icons.
+
+Other notable updates include:
+
+* Fixed: 10.8 Compatibility.
+* Fixed: Text files cannot be opened.
+* Fixed: Failure to render when texts are entered before preferences are loaded.
+* Enhancement: Menu items and keyboard shorcuts to convert given line(s) to H1–H6 and regular paragraphs.
+* Enhancement: Spelling, grammar and subtitution preferences of the editor are now persisted app-wise.
+* Enhancement: New syntax highlighting language: Objective-C. Use `objective-c`, `objectivec`, `obj-c`, or `objc` to get it.
+* Enhancement: New syntax aliases: You can now use `html` and `xml` as code block language IDs. They are mapped to `markup`.
+* Enhancement: You can now customise the style of syntax highlighting as well as the overrall HTML style.
+* Enhancement: Exported HTML are reduced by loading only necessary components of Prism.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.1.2/MacDown.app.zip
+---
+pub_datetime: 2014-06-28 16:33:39

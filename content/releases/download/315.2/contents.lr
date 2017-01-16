@@ -1,0 +1,33 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 315.2
+---
+version: 0.2.2d16
+---
+dsa_signature: MCwCFH5HhiQX33KA4Wkq9hhj/kftY8EdAhQ0tyH7Tcr3uLlXdY9Rm+EeBy8g0g==
+---
+length: 4876978
+---
+note:
+
+This is a development update. **Update at your own risks!!**
+
+* Fixed: Intentation error when completing list items.
+* Fixed: Inline formatting and other errors in `help.md`.
+* Fixed: Erroneous link detection in editor.
+* Enhancement: Preview geometry restoration after hiding.
+* Enhancement: Better menu item behaviour.
+* Enhancement: Tab indents selection.
+* Enhancement: “:” and “/” in suggested file name are now substituted with “-“.
+* Enhancement: Allow files to be saved in arbitrary extensions.
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/j5fbF+
+---
+pub_datetime: 2014-07-29 16:30:11

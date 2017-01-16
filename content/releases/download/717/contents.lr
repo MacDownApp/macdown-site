@@ -1,0 +1,26 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 717
+---
+version: 0.5.5.1
+---
+dsa_signature: MCwCFFnZIxruJtAHhYQF7AJ8yFphk3vWAhQd1PM6m5MHEq1QOsGXb7ci1wgpTA==
+---
+length: 8077986
+---
+note:
+
+* Fixed crashes when the editor font is invalid.
+* Sparkle is re-bundled to make sure we're using 1.13.1.
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.5.5.1/MacDown.app.zip
+---
+pub_datetime: 2016-01-31 20:39:12
