@@ -15,7 +15,7 @@ length: 8061440
 ---
 note:
 
-## IMPORTANT SECURITY RELEASE; PLEASE UPGRADE NOW.
+### IMPORTANT SECURITY RELEASE; PLEASE UPGRADE NOW.
 
 This update addresses the security issue found in Sparkle, the automatic upgrade framework used by MacDown. Please upgrade as the earliest possible chance.
 
