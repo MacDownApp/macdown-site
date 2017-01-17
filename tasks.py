@@ -112,6 +112,9 @@ def build(ctx):
         builder = Builder(pad, OUTPUT_DIR)
         builder.build_all()
 
+    if builder.failures:
+        raise invoke.Exit('Builder failed.')
+
     # Generate redirect file.
     redirect_filename = os.path.join(OUTPUT_DIR, '_redirects')
     with io.open(redirect_filename, mode='w', encoding='utf8') as f:
