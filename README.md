@@ -16,9 +16,7 @@ These are [Lektor] source files used to generate <http://macdown.uranusjr.com>. 
 
 Deployment:
 
-* Route <http://macdown.uranusjr.com> to the current site.
 * Make sure update-pushing works.
-* Enable HTTPS on Netlify.
 * Switch feed URL in MacDown to use HTTPS.
 * Add a license file to the repo.
 
