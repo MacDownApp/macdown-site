@@ -141,9 +141,10 @@ class Renderer(object):
             ]);
         """)
         for name in os.listdir(ext_dir):
-            if name.endswith('.js'):
-                with open(os.path.join(ext_dir, name)) as f:
-                    self.runner.evaluate(f)
+            if not name.endswith('.js'):
+                continue
+            with io.open(os.path.join(ext_dir, name), encoding='utf8') as f:
+                self.runner.evaluate(f)
 
     def render(self, md):
         self.runner['md'] = md

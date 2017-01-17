@@ -1,6 +1,9 @@
+from __future__ import unicode_literals
+
 import json
 
 from py_mini_racer import py_mini_racer
+from six import text_type
 
 from .base import JavaScriptError
 
@@ -22,7 +25,7 @@ class JavaScriptRunner(object):
         try:
             result = self.ctx.eval(script)
         except py_mini_racer.MiniRacerBaseException as e:
-            errmsg = str(e)
+            errmsg = text_type(e)
             errmsg = errmsg[(errmsg.find('\n') + 1):]
             raise JavaScriptError(errmsg)
         return result
