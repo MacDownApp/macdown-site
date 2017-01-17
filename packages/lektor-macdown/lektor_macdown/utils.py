@@ -1,4 +1,4 @@
-from __future__ import print_function, unicode_literals
+from __future__ import unicode_literals
 
 import base64
 import functools
@@ -6,7 +6,6 @@ import io
 import json
 import os
 import re
-import sys
 import threading
 import zipfile
 
@@ -68,7 +67,6 @@ def cached(filename):
             with _cache_lock:
                 cache_fs = os.path.join(CACHE_DIR, filename)
                 if os.path.exists(cache_fs):
-                    print('Using cached {}'.format(filename), file=sys.stderr)
                     with io.open(cache_fs, encoding='utf8') as f:
                         value = f.read()
                 else:
