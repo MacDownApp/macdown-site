@@ -4,6 +4,7 @@ import datetime
 import io
 import json
 import os
+import shutil
 
 import invoke
 import six
@@ -11,14 +12,16 @@ import six
 from lektor.builder import Builder
 from lektor.cli import Context
 from lektor.db import F
+from lektor.devserver import run_server
 from lektor.project import Project
-from lektor.reporter import CliReporter
+from lektor.reporter import CliReporter, reporter
 
 if six.PY2:
     input = raw_input   # noqa
 
 
 ROOT_DIR = os.path.dirname(__file__)
+OUTPUT_DIR = os.path.join(ROOT_DIR, 'build')
 
 
 def padright(s, unit):
@@ -70,6 +73,33 @@ def generate_blog_post_redirects(pad):
 
 
 @invoke.task
+def serve(ctx):
+    lektor_cli_ctx = Context()
+    lektor_cli_ctx.load_plugins()
+
+    env = lektor_cli_ctx.get_env()
+    run_server(
+        ('127.0.0.1', 5000), env=env, output_path=OUTPUT_DIR, verbosity=0,
+    )
+
+
+@invoke.task
+def remove(ctx, relpath):
+    lektor_cli_ctx = Context()
+    lektor_cli_ctx.load_plugins()
+
+    env = lektor_cli_ctx.get_env()
+    path = os.path.join(OUTPUT_DIR, relpath)
+    with CliReporter(env, verbosity=0), reporter.build('prune', None):
+        if os.path.exists(path):
+            reporter.report_pruned_artifact(relpath)
+            if os.path.isdir(path):
+                shutil.rmtree(path)
+            else:
+                os.remove(path)
+
+
+@invoke.task
 def build(ctx):
     lektor_cli_ctx = Context()
     lektor_cli_ctx.load_plugins()
@@ -77,15 +107,13 @@ def build(ctx):
     env = lektor_cli_ctx.get_env()
     pad = env.new_pad()
 
-    output_to = 'build'
-
     # This is essentially `lektor build --output-path build`.
     with CliReporter(env, verbosity=0):
-        builder = Builder(pad, output_to)
+        builder = Builder(pad, OUTPUT_DIR)
         builder.build_all()
 
     # Generate redirect file.
-    redirect_filename = os.path.join(ROOT_DIR, output_to, '_redirects')
+    redirect_filename = os.path.join(OUTPUT_DIR, '_redirects')
     with io.open(redirect_filename, mode='w', encoding='utf8') as f:
         static_redirect = get_static_redirect()
         f.write(static_redirect)
