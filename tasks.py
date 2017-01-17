@@ -110,9 +110,9 @@ def build(ctx):
     # This is essentially `lektor build --output-path build`.
     with CliReporter(env, verbosity=0):
         builder = Builder(pad, OUTPUT_DIR)
-        builder.build_all()
+        failures = builder.build_all()
 
-    if builder.failures:
+    if failures:
         raise invoke.Exit('Builder failed.')
 
     # Generate redirect file.
