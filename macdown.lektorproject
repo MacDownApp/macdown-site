@@ -1,6 +1,6 @@
 [project]
 name = macdown
-url = http://macdown.uranusjr.com
+url = https://macdown.uranusjr.com
 
 [packages]
 lektor-disqus-comments = 0.2
