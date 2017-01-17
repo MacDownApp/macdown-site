@@ -3,5 +3,4 @@ name = macdown
 url = http://macdown.uranusjr.com
 
 [packages]
-lektor-atom = 0.2
 lektor-disqus-comments = 0.2
