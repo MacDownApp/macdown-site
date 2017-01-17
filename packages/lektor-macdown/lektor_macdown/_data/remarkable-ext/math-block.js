@@ -49,7 +49,7 @@ function mathBlock(state, startLine, endLine, silent) {
   }
 
   state.line = nextLine + (haveEndMarker ? 1 : 0);
-  state.tokens.push({
+  state.push({
     type: 'math_block',
     content: state.getLines(
       startLine, nextLine, 0, false).substr(starter.length).trim(),

@@ -24,9 +24,11 @@ function mathInline(state, silent) {
 
 	for (pos; pos + ender.length <= max; pos++) {
 		if (state.src.slice(pos, pos + ender.length) === ender) {
-			state.tokens.push({
+			state.push({
 				type: 'math_inline',
 				content: state.src.slice(start + starter.length, pos),
+				starter: starter,
+				ender: ender,
 				level: state.level
 			});
 			state.pos = pos + ender.length;
@@ -40,7 +42,14 @@ function mathInline(state, silent) {
 rmkb.inline.ruler.before('escape', 'math_inline', mathInline);
 
 rmkb.renderer.rules.math_inline = function (tokens, idx, options, env) {
-	return '<span class="katex-rendered">' +
-			katex.renderToString(tokens[idx].content, false, false) +
+	var rendered;
+	var t = tokens[idx];
+	try {
+		rendered = katex.renderToString(t.content, false, false);
+	} catch (e) {
+		return '<span class="katex-failed">' +
+			t.content +
 			'</span>';
+	}
+	return '<span class="katex-rendered">' + rendered + '</span>';
 }

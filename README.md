@@ -5,9 +5,10 @@ These are [Lektor] source files used to generate <macdown.uranusjr.com>. The gen
 ## Run site locally
 
 1. Install [Lektor].
-2. Add either [pyobjc-framework-webkit] or [PyMiniRacer] to the Python installation.
-3. `lektor build` to build the files. Internet connection is required on the first run.
-4. `lektor server` to launch the dev server.
+2. Install Python dependencies: `pip install requirements.txt`.
+2. Optional: Install [pyobjc-framework-webkit] for faster JavaScript server-side rendering.
+3. `invoke build` to build the files. Internet connection is required on the first run.
+4. `invoke server` to launch the dev server.
 5. Visit `http://localhost:5000`.
 
 
@@ -27,11 +28,9 @@ Feature:
 
 Markdown renderer:
 
-* Inline math is hoisted to the brginning of a text group.
 * Escape in math blocks.
 * Quote syntax.
 
 
 [Lektor]: https://www.getlektor.com
 [pyobjc-framework-webkit]: http://pythonhosted.org/pyobjc-framework-WebKit/
-[PyMiniRacer]: https://github.com/sqreen/PyMiniRacer

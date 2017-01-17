@@ -28,7 +28,7 @@ function taskMarker(state, silent) {
 		return false;
 	}
 
-	state.tokens.push({
+	state.push({
 		type: 'task_marker',
 		checked: checked,
 		level: state.level
