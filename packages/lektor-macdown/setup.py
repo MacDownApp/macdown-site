@@ -4,7 +4,7 @@ setup(
     name='lektor-macdown',
     version='0.1',
     packages=find_packages(),
-    install_requires=['lektor', 'markupsafe', 'six'],
+    install_requires=['markupsafe', 'six'],
     entry_points={
         'lektor.plugins': [
             'macdown = lektor_macdown:MacDownPlugin',
