@@ -12,12 +12,9 @@ from markupsafe import Markup
 
 from .js import JavaScriptRunner
 from .utils import (
-    cached, download_endpoint, download_file, download_prism_script_files,
+    cached, download_from_cdnjs, download_prism_script_files,
     get_prism_language_data, get_language_alias_data,
 )
-
-
-DISTRIB_EP = '/repos/jonschlinkert/remarkable/contents/dist/remarkable.min.js'
 
 
 def get_prism_dependency_map():
@@ -88,18 +85,15 @@ def get_prism_script():
 @cached('remarkable.min.js')
 def get_remarkable_script():
     # TODO: Match this with MacDown's version.
-    remarkable_script = download_endpoint(endpoint=DISTRIB_EP, ref='master')
-    return remarkable_script
+    script = download_from_cdnjs('remarkable/1.7.1/remarkable.min.js')
+    return script
 
 
 @cached('katex.min.js')
 def get_katex_script():
     # TODO: Match this with MacDown's version.
-    katex_script = download_file(
-        'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js',
-        encoding='utf-8',
-    )
-    return katex_script
+    script = download_from_cdnjs('KaTeX/0.6.0/katex.min.js')
+    return script
 
 
 class Renderer(object):

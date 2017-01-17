@@ -1,9 +1,12 @@
+from __future__ import print_function, unicode_literals
+
 import base64
 import functools
 import io
 import json
 import os
 import re
+import sys
 import threading
 import zipfile
 
@@ -48,6 +51,13 @@ def download_file(url, encoding=None):
     return data
 
 
+def download_from_cdnjs(path, encoding='utf-8'):
+    return download_file(
+        'https://cdnjs.cloudflare.com/ajax/libs/' + path,
+        encoding=encoding,
+    )
+
+
 def cached(filename):
     """Cache function results in file specified.
     """
@@ -58,6 +68,7 @@ def cached(filename):
             with _cache_lock:
                 cache_fs = os.path.join(CACHE_DIR, filename)
                 if os.path.exists(cache_fs):
+                    print('Using cached {}'.format(filename), file=sys.stderr)
                     with io.open(cache_fs, encoding='utf8') as f:
                         value = f.read()
                 else:
