@@ -1,6 +1,6 @@
-# Source files for macdown.uranusjr.com
+# Source files for the official MacDown site
 
-These are [Lektor] source files used to generate <macdown.uranusjr.com>. The generated files are hosted on Netlify with the custom domain name.
+These are [Lektor] source files used to generate <http://macdown.uranusjr.com>. The generated files are hosted on Netlify with the custom domain name.
 
 ## Run site locally
 
@@ -16,7 +16,7 @@ These are [Lektor] source files used to generate <macdown.uranusjr.com>. The gen
 
 Deployment:
 
-* Route <macdown.uranusjr.com> to the current site.
+* Route <http://macdown.uranusjr.com> to the current site.
 * Make sure update-pushing works.
 * Enable HTTPS on Netlify.
 * Switch feed URL in MacDown to use HTTPS.
@@ -28,7 +28,9 @@ Feature:
 
 Markdown renderer:
 
-* Escape in math blocks.
+* `$`-style math.
+* Context-aware `$$` math.
+* Escape in math syntax.
 * Quote syntax.
 
 
