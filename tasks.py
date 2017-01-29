@@ -66,11 +66,15 @@ def generate_blog_post_redirects(pad):
             padright('/blog/{}'.format(post['id']), 24),
             redirect_url,
         )
-        yield '{}{}'.format(    # Backward compatibility redirect.
+        yield '{}{}'.format(    # For Disqus.
+            padright('/blog/{}/*'.format(post['id']), 24),
+            redirect_url,
+        )
+        yield '{}{}'.format(    # Backward compatibility to the Django site.
             padright('/blog/post/{}'.format(post['id']), 24),
             redirect_url,
         )
-        yield '{}{}'.format(    # Backward compatibility redirect.
+        yield '{}{}'.format(    # Backward compatibility to the Django site.
             padright('/blog/post/{}/*'.format(post['id']), 24),
             redirect_url,
         )
