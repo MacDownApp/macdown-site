@@ -62,12 +62,16 @@ def get_latest_download_redirect(pad):
 def generate_blog_post_redirects(pad):
     for post in pad.query('/blog'):
         redirect_url = post.url_path
-        yield '{}{}'.format(
+        yield '{}{}'.format(    # For Disqus.
+            padright('/blog/{}'.format(post['id']), 24),
+            redirect_url,
+        )
+        yield '{}{}'.format(    # Backward compatibility redirect.
             padright('/blog/post/{}'.format(post['id']), 24),
             redirect_url,
         )
-        yield '{}{}'.format(
-            padright('/blog/post/{}/'.format(post['id']), 24),
+        yield '{}{}'.format(    # Backward compatibility redirect.
+            padright('/blog/post/{}/*'.format(post['id']), 24),
             redirect_url,
         )
 
@@ -139,9 +143,6 @@ def build(ctx):
             f.write('# Latests version download links.\n')
             f.write(latest_redirect)
             f.write('\n')
-
-    with io.open(redirect_filename, encoding='utf8') as f:
-        print(f.read())
 
 
 blog_post_template = """id: {id}
