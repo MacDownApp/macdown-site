@@ -67,7 +67,7 @@ def generate_blog_post_redirects(pad):
             redirect_url,
         )
         yield '{}{}'.format(
-            padright('/blog/post/{}/*'.format(post['id']), 24),
+            padright('/blog/post/{}/'.format(post['id']), 24),
             redirect_url,
         )
 
@@ -124,21 +124,24 @@ def build(ctx):
             f.write('\n')
 
         f.write('\n')
-        f.write('# Blog posts.')
+        f.write('# Blog posts.\n')
         f.write('\n'.join(generate_blog_post_redirects(pad)))
         f.write('\n')
 
         f.write('\n')
-        f.write('# Download redirects.')
+        f.write('# Download redirects.\n')
         f.write('\n'.join(generate_download_redirects(pad)))
         f.write('\n')
 
         latest_redirect = get_latest_download_redirect(pad)
         if latest_redirect is not None:
             f.write('\n')
-            f.write('# Latests version download linkt.')
+            f.write('# Latests version download links.\n')
             f.write(latest_redirect)
             f.write('\n')
+
+    with io.open(redirect_filename, encoding='utf8') as f:
+        print(f.read())
 
 
 blog_post_template = """id: {id}
