@@ -1,6 +1,8 @@
 /blog/feed/atom1/       /blog/feed/atom.xml
 /blog/feed/rss201rev2/  /blog/feed/atom.xml
 
-/history/   /history/stable/
+/history/               /history/stable/    302
+
+/static/base/img/*      /static/images/:splat
 
 /sparkle/macdown/appcast.xml    /sparkle/macdown/stable/appcast.xml
