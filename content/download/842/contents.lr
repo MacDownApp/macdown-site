@@ -1,0 +1,38 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 842
+---
+version: 0.6.5d56
+---
+dsa_signature: MCwCFBjGJWMw2MKkctPb/Y3QYRltBEwHAhR7yFAIKQNXGIKeva2jjNXC7qUiiA==
+---
+length: 8362971
+---
+note:
+
+MacDown now support translation! Visit [our Transifex project](https://www.transifex.com/macdown/macdown/dashboard/) to request for new languages, and contribute on translations.
+
+### Bug fixes
+
+* Suggest extension completion on save only if none is set.
+* Panes in new windows could become hideable under certain circumstances.
+* CLI utility shows wrong usage example.
+
+### New features and improvements
+
+* Preference pane to inspect CLI utility installation status, and a shortcut for quickly installing it to a default location.
+* Image caching in preview is disabled to make it able to reflect external image modification.
+* Save dialog now only selects the stem by default, making it easier to modify the file name.
+* Support piping text to the CLI utility to create file.
+
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/2SXi+
+---
+pub_datetime: 2017-02-19 15:39:25
