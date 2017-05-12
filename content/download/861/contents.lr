@@ -1,0 +1,51 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 861
+---
+version: 0.7
+---
+dsa_signature: MC0CFQCWRMpLhiyo5iTk9mjZQvxaodaYGwIUDwFPs6D0EFaSWfEUn3ztdcFXczs=
+---
+length: 13504874
+---
+note:
+
+MacDown now has i18n! Thanks to all people giving feedback on this issue, and all our contributors on Transifex. Visit our project page if you would like to help translating MacDown to your language:
+
+https://www.transifex.com/macdown/macdown/
+
+
+### Bug fixes
+
+* Some usability issues with the CLI utility.
+* A missing resource in the bundle.
+* Unhideable panes on new window after a panel is hidden, the window closes, and a new window is opened.
+* New file not created when being opened.
+* The preference window layout is broken if the font selector gets too large.
+* MathJax CDN shut down in May 2017. Math support is now provided via CDNJS.
+
+### Enhancements
+
+* UI for CLI utility installation. This is super handy! Kudos to @niklasberglund.
+* Piping to the CLI utility now creates a new document with the piped content.
+* Do not select ext in save dialog if possible. This also makes the “hide extension” checkbox work.
+* Suggest filename only when doc have no `fileURL` is set. This fixes a problem with the CLI utility if you provide a non-standard extension.
+* Launching files from CLI does not always open a new document now. A new document is created only when necessary.
+* Image caches are now less an issue in the preview. This is done by disabling WebCache’s caching via private API. See #746 and #747 for discussions about a more long-term solution to this.
+
+### Misc
+
+* Bumped various dependencies to fix upstream bugs. The build process is also improved by this so you can clone and build from source more easily.
+
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.7/MacDown.app.zip
+---
+pub_datetime: 2017-05-12 12:08:19
