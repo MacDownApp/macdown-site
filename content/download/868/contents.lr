@@ -1,0 +1,26 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 868
+---
+version: 0.7.1
+---
+dsa_signature: MCwCFCIfuPbB5fLt2kJpgZ2yrS/gm8eNAhR6LwzJedCmwhza7eyRbhX5e6YLqg==
+---
+length: 13522184
+---
+note:
+
+Fix some over-translation issues with package meta-data. This prevents the About dislog showing incorrect information in translated UI.
+
+
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.7.1/MacDown.app.zip
+---
+pub_datetime: 2017-05-14 18:49:19
