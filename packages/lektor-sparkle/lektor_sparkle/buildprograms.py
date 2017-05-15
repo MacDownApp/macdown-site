@@ -83,12 +83,15 @@ class AppCastBuildProgram(BuildProgram):
             pub_date = item['pub_datetime'].replace(tzinfo=tzinfo)
 
             try:
+                build_number = str(item['build_number'])
+                if '.' in build_number:
+                    build_number = build_number.rstrip('0').rstrip('.')
                 appcast.add(
                     title='Version {}'.format(item['version']),
                     description=description,
                     pub_date=pub_date,
                     url=item['download_url'],
-                    build=str(item['build_number']).rstrip('0').rstrip('.'),
+                    build=build_number,
                     version=item['version'],
                     length=item['length'],
                     dsasign=item['dsa_signature'],
