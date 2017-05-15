@@ -5,13 +5,13 @@ channels:
 stable
 testing
 ---
-build_number: 868
+build_number: 870
 ---
 version: 0.7.1
 ---
-dsa_signature: MCwCFCIfuPbB5fLt2kJpgZ2yrS/gm8eNAhR6LwzJedCmwhza7eyRbhX5e6YLqg==
+dsa_signature: MC0CFQC1drmknGXEXDgI3K7u3oA2ux18/QIUFTY5VrIPnUxEgpN97GbvizssLg0=
 ---
-length: 13522184
+length: 13524697
 ---
 note:
 
@@ -23,4 +23,4 @@ min_sysver: 10.8
 ---
 download_url: https://github.com/MacDownApp/macdown/releases/download/v0.7.1/MacDown.app.zip
 ---
-pub_datetime: 2017-05-14 18:49:19
+pub_datetime: 2017-05-15 17:30:19
