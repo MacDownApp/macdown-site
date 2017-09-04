@@ -1,0 +1,40 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 919
+---
+version: 0.7.2d49
+---
+dsa_signature: MC0CFQCduXWC1Idy4Y/1aFgl094j6QO7sgIUYsv+cqI6zSrgJxWb9uUO6+oszlI=
+---
+length: 13894677
+---
+note:
+
+### New features
+
+* Experiemental toolbar and new MacBook Pro Touchbar support! Please try them out and tell us what you think on [Gitter](https://gitter.im/MacDownApp/macdown) and/or [GitHub](https://github.com/MacDownApp/macdown/issues).
+* Many new languages! I lost count of them already, just try and see for yourself. :p
+
+
+### Enhancements
+
+* Lots of cleanup on editor initiailsation to make it load faster and reduce flicker.
+* `$` is now (finally!) escapable in editor.
+* Sublist items now line up better in the editor.
+
+
+### Bug fixes
+
+* Obscure crash when highlighting the editor.
+
+
+---
+min_sysver: 10.8
+---
+download_url: http://d.pr/f/YeYkOQ+
+---
+pub_datetime: 2017-09-04 15:13:37
