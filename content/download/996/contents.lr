@@ -1,0 +1,41 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 996
+---
+version: 0.7.2d126
+---
+dsa_signature: MCwCFEh1mwUnDqu8IQUf8EEJiQJbqCWCAhQHZ+DOYXgvasr0E/KzhkyaYvardQ==
+---
+length: 20221054
+---
+note:
+
+### New features
+
+* [Graphviz](https://www.graphviz.org) graph support.
+* Allow images to be dropped directly into the editor. This will insert the
+  image syntax `![]()` with the image’s local path.
+
+
+### Enhancements
+
+* Scrolling sync is greatly improved to the header level.
+* Speed boost.
+
+
+### Bug fixes
+
+* HTML can now be correct copied.
+* Large document with many LaTeX equations no longer crash MacDown.
+
+
+---
+min_sysver: 10.8
+---
+download_url: https://d.pr/f/Wgi4j1+
+---
+pub_datetime: 2018-04-06 19:04:00

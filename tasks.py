@@ -222,7 +222,7 @@ def release(ctx, path_to_info):
     env = project.make_env()
     pad = env.new_pad()
 
-    later = datetime.datetime.now() + datetime.timedelta(hour=1)
+    later = datetime.datetime.now() + datetime.timedelta(hours=1)
 
     with io.open(path_to_info, encoding='utf8') as f:
         info = json.load(f)
