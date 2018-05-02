@@ -108,9 +108,14 @@ def remove(ctx, relpath):
 
 
 @invoke.task
-def build(ctx):
+def build(ctx, bust=False):
     lektor_cli_ctx = Context()
     lektor_cli_ctx.load_plugins()
+
+    if bust:
+        project = lektor_cli_ctx.get_project()
+        shutil.rmtree(project.get_package_cache_path(), ignore_errors=True)
+        shutil.rmtree(project.get_output_path(), ignore_errors=True)
 
     env = lektor_cli_ctx.get_env()
     pad = env.new_pad()
