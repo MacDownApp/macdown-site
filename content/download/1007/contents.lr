@@ -1,0 +1,37 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 1007
+---
+version: 0.7.2d137
+---
+dsa_signature: MC0CFEMThXERcnSwEttNq3AQlLR0/A31AhUAgAXIAuIYKr6/ghVf+hi1ZbSczRg=
+---
+length: 20584905
+---
+note:
+
+### New features
+
+* Retina-ready touchbar support.
+
+
+### Enhancements
+
+* Improved styling in printed output (including PDF).
+
+
+### Bug fixes
+
+* Mermaid graphs duplicate in render result.
+
+
+---
+min_sysver: 10.8
+---
+download_url: https://d.pr/f/jKqjqi+
+---
+pub_datetime: 2018-05-02 15:43:00
