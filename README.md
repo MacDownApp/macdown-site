@@ -5,10 +5,10 @@ These are [Lektor] source files used to generate <http://macdown.uranusjr.com>. 
 ## Run site locally
 
 1. Install [Lektor].
-2. Install Python dependencies: `pip install requirements.txt`.
+2. Install Python dependencies: `pip install -r requirements.txt`.
 2. Optional: Install [pyobjc-framework-webkit] for faster JavaScript server-side rendering.
 3. `invoke build` to build the files. Internet connection is required on the first run.
-4. `invoke server` to launch the dev server.
+4. `invoke serve` to launch the dev server.
 5. Visit `http://localhost:5000`.
 
 
