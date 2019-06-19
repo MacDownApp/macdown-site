@@ -1,5 +1,6 @@
 import re
 import sys
+from functools import total_ordering
 
 import lektor.pluginsystem
 import lektor.types
@@ -8,18 +9,44 @@ import six
 from .buildprograms import AppCastBuildProgram, AppCastSource
 
 
-class BuildNumberType(lektor.types.FloatType):
+@total_ordering
+class BuildNumber:
+    """Represents build numbers.
 
-    trailing_fraction_pattern = re.compile(r'(\.[1-9]*)0+$')
+    Implements their ordering.
+    """
+
+    __trailing_fraction_pattern = re.compile(r'(\.[1-9]*)0+$')
+
+    def __init__(self, value):
+        self.__display = (self
+                          .__trailing_fraction_pattern.sub(r'\1', value)
+                          .rstrip('.')
+                          )
+        self.comparison_value = float(value)
+
+    def __eq__(self, other):
+        return self.comparison_value == other.comparison_value
+
+    def __lt__(self, other):
+        res = self.comparison_value < other.comparison_value
+        return res
+
+    def __str__(self):
+        return self.__display
+
+
+class BuildNumberType(lektor.types.Type):
 
     def value_from_raw(self, raw):
-        value = str(super(BuildNumberType, self).value_from_raw(raw))
-        value = self.trailing_fraction_pattern.sub(r'\1', value)
-        return value.rstrip('.')
-
+        if raw.value is None:
+            return raw.missing_value('Missing build number value')
+        try:
+            return BuildNumber(raw.value.strip())
+        except ValueError:
+            return raw.bad_value('Not a build number (float-like syntax)')
 
 class SparklePlugin(lektor.pluginsystem.Plugin):
-
     name = 'Sparkle'
     description = 'Lektor Sparkle AppCast generator.'
 
