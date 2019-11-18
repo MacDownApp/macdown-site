@@ -1,0 +1,24 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 1008
+---
+version: 0.7.2
+---
+dsa_signature: MCwCFBXuEYBSzzkQpdvs8ocjX9cWb6apAhRME1E7hYp/ugxSonRKjiPDe5pAIw==
+---
+length: 21110502
+---
+note:
+
+This is (almost) the same as 0.7.2d137.
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.7.2/MacDown.app.zip
+---
+pub_datetime: 2019-11-18 14:10:00
