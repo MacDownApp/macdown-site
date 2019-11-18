@@ -15,7 +15,15 @@ length: 21110502
 ---
 note:
 
-This is (almost) the same as 0.7.2d137.
+This is (almost) the same as 0.7.2d137. New features introduced in testing
+channel now land on stable channel, including
+
+* Toolbar support.
+* MacBook Pro Touchbar support.
+* Allow images to be dropped directly into the editor. This will insert the
+  image syntax `![]()` with the image’s local path.
+* [Graphviz](https://www.graphviz.org) graph support.
+* Translation of new languages.
 ---
 min_sysver: 10.8
 ---
