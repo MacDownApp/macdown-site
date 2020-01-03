@@ -1,0 +1,24 @@
+_model: release
+---
+channels:
+
+stable
+testing
+---
+build_number: 1008.4
+---
+version: 0.7.3
+---
+dsa_signature: MCwCFEiIBsq5smjajlX0TCyoUAONu9xVAhRTRAT8ycwIty5faXKZD3uj+RRISw==
+---
+length: 20834057
+---
+note:
+
+* Fixes the preference pane bug.
+---
+min_sysver: 10.8
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.7.3/MacDown.app.zip
+---
+pub_datetime: 2020-01-03 01:23:00
