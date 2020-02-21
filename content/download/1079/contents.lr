@@ -1,0 +1,28 @@
+_model: release
+---
+channels:
+
+testing
+---
+build_number: 1079
+---
+version: 0.8.0d71
+---
+dsa_signature: MCwCFCBkZtS2Nyn79djEVBrbXdgRc/rNAhQE4k8kQC9t+im/43zqI6HaGovYsw==
+---
+length: 21107208
+---
+note:
+
+* Add auto-complete support for Guillemets ([Pull 973](https://github.com/MacDownApp/macdown/pull/973))
+* Improve Touch Bar ([Pull 978](https://github.com/MacDownApp/macdown/pull/978))
+* Implement x-macdown URL scheme ([Pull 985](https://github.com/MacDownApp/macdown/pull/985))
+* Add note on turning on Webkit developer extras ([Pull 1005](https://github.com/MacDownApp/macdown/pull/1005))
+* Check for .md file existence on link click ([Pull 1086](https://github.com/MacDownApp/macdown/pull/1086))
+* Upgrade Mermaid ([Pull 1137](https://github.com/MacDownApp/macdown/pull/1137))
+---
+min_sysver: 10.10
+---
+download_url: https://github.com/MacDownApp/macdown/releases/download/v0.7.2/MacDown.app.zip
+---
+pub_datetime: 2019-11-18 14:10:00
