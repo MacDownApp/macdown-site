@@ -2,3 +2,4 @@ invoke
 lektor
 py-mini-racer
 six
+Werkzeug==0.16.1
