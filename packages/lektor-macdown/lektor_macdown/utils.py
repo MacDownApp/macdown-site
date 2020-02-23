@@ -10,6 +10,7 @@ import threading
 import zipfile
 
 from six.moves import urllib
+import requests
 
 
 GITHUB_API_BASE_URL = 'https://api.github.com/'
@@ -23,38 +24,15 @@ class EndpointError(Exception):
     pass
 
 
-def get_endpoint(path, params=None):
-    url = urllib.parse.urljoin(GITHUB_API_BASE_URL, path)
-    if params is not None:
-        url = url + '?' + '&'.join('{k}={v}'.format(
-            k=key, v=params[key],
-        ) for key in params)
-    try:
-        response = urllib.request.urlopen(url)
-    except urllib.error.HTTPError:
-        raise EndpointError(url)
-    return json.loads(response.read().decode('utf8'))
-
-
-def download_endpoint(endpoint, ref, encoding='utf-8'):
-    data = get_endpoint(endpoint, params={'ref': ref})
-    content_str = base64.b64decode(data['content']).decode(encoding)
-    return content_str
-
-
-def download_file(url, encoding=None):
-    response = urllib.request.urlopen(url)
-    data = response.read()
-    if encoding:
-        return data.decode(encoding)
-    return data
+def __json_from_github(path, ref=None):
+    """Get JSON data from MacDown repository on GitHub.
+    """
+    url = 'https://api.github.com/repos/MacDownApp/macdown' + path
+    return requests.get(url, params={'ref': ref}).json()
 
 
 def download_from_cdnjs(path, encoding='utf-8'):
-    return download_file(
-        'https://cdnjs.cloudflare.com/ajax/libs/' + path,
-        encoding=encoding,
-    )
+    return requests.get('https://cdnjs.cloudflare.com/ajax/libs/' + path).text
 
 
 def cached(filename):
@@ -86,24 +64,15 @@ def cached(filename):
 
 @cached('macdown-tag.txt')
 def get_latest_stable_macdown_tag():
-    tag_data_list = get_endpoint('/repos/MacDownApp/macdown/tags')
-    tag = None
-    for tag_data in tag_data_list:
-        tag_name = tag_data['name']
-        if STABLE_TAG_PATTERN.match(tag_name):
-            tag = tag_name
-            break
-    assert tag is not None
-    return tag
+    tags = map(lambda data: data['name'], __json_from_github('/tags'))
+    return next(x for x in tags if STABLE_TAG_PATTERN.match(x))
 
 
 @cached('prism-ref.txt')
 def get_prism_ref():
-    data = get_endpoint(
-        '/repos/MacDownApp/macdown/contents/Dependency/prism',
-        params={'ref': get_latest_stable_macdown_tag()},
-    )
-    return data['sha']
+    return __json_from_github(
+        '/contents/Dependency/prism',
+        ref=get_latest_stable_macdown_tag())['sha']
 
 
 def download_prism_script_files():
@@ -111,9 +80,8 @@ def download_prism_script_files():
     container_dir = os.path.join(CACHE_DIR, 'prism-{}'.format(ref))
     if os.path.isdir(container_dir):
         return container_dir
-    data = download_file(
-        'https://github.com/PrismJS/prism/archive/{}.zip'.format(ref),
-    )
+    url = 'https://github.com/PrismJS/prism/archive/{}.zip'.format(ref)
+    data = requests.get(url).content
     with zipfile.ZipFile(io.BytesIO(data)) as zipf:
         zipf.extractall(path=CACHE_DIR)
     return container_dir
@@ -140,11 +108,6 @@ def get_prism_language_data():
 def get_language_alias_data():
     """Get MacDown-maintained language aliases.
     """
-    info_str = download_endpoint(
-        endpoint=(
-            '/repos/MacDownApp/macdown/contents/MacDown/Resources/'
-            'syntax_highlighting.json'
-        ),
-        ref=get_latest_stable_macdown_tag(),
-    )
-    return info_str
+    path = '/contents/MacDown/Resources/syntax_highlighting.json'
+    data = __json_from_github(path, ref=get_latest_stable_macdown_tag())
+    return base64.b64decode(data['content']).decode('utf-8')
