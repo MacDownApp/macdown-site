@@ -6,7 +6,7 @@ content:
 
 ### Markdown Rendering
 
-[Hoedown](https://github.com/hoedown/hoedown) is used internally to render Markdown into HTML. This makes MacDown’s live preview both efficient and very configurable. It also supports lots of non-standard syntactic features, including the very widely-used [fenced code blocks with language identifiers](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks). You can find all the available configurations in MacDown’s Preferences pane.
+[Hoedown](https://github.com/hoedown/hoedown) is used internally to render Markdown into HTML. This makes MacDown’s live preview both efficient and very configurable. It also supports lots of non-standard syntactic features, including the very widely-used [fenced code blocks with language identifiers](https://help.github.com/articles/creating-and-highlighting-code-blocks#fenced-code-blocks). You can find all the available configurations in MacDown’s Preferences pane.
 
 ![Markdown syntax preferences](preferences-markdown.png)
 
