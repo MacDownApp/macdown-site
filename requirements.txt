@@ -3,4 +3,4 @@ lektor
 py-mini-racer
 six
 watchdog~=0.10.6
-Werkzeug==0.16.1
+Werkzeug==2.2.3
